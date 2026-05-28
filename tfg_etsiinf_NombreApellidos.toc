@@ -69,31 +69,32 @@
 \contentsline {subsubsection}{\numberline {6.2.4.1}Firma y Representación Legal}{23}{subsubsection.6.2.4.1}%
 \contentsline {subsubsection}{\numberline {6.2.4.2}Gestión Documental y Privacidad}{23}{subsubsection.6.2.4.2}%
 \contentsline {chapter}{\numberline {7}Módulo de Gestión de Empleados}{25}{chapter.7}%
-\contentsline {section}{\numberline {7.1}Operativa de Alta de Empleados}{25}{section.7.1}%
+\contentsline {section}{\numberline {7.1}Operativa de Empleados: Alta y Edición}{25}{section.7.1}%
 \contentsline {subsection}{\numberline {7.1.1}Proceso de Registro y Permisos}{25}{subsection.7.1.1}%
-\contentsline {section}{\numberline {7.2}Datos del Formulario de Empleados}{25}{section.7.2}%
-\contentsline {subsection}{\numberline {7.2.1}Datos de Identificación y Contacto}{25}{subsection.7.2.1}%
-\contentsline {subsubsection}{\numberline {7.2.1.1}Identificación Oficial y Afiliación}{26}{subsubsection.7.2.1.1}%
-\contentsline {subsubsection}{\numberline {7.2.1.2}Filiación y Datos Personales}{26}{subsubsection.7.2.1.2}%
-\contentsline {subsubsection}{\numberline {7.2.1.3}Información de Contacto}{26}{subsubsection.7.2.1.3}%
-\contentsline {subsection}{\numberline {7.2.2}Datos de Domicilio}{26}{subsection.7.2.2}%
-\contentsline {subsubsection}{\numberline {7.2.2.1}Dirección Física y Geográfica}{26}{subsubsection.7.2.2.1}%
-\contentsline {subsection}{\numberline {7.2.3}Datos de Contrato y Formación}{26}{subsection.7.2.3}%
-\contentsline {subsubsection}{\numberline {7.2.3.1}Vinculación Corporativa y Académica}{27}{subsubsection.7.2.3.1}%
-\contentsline {subsubsection}{\numberline {7.2.3.2}Condiciones y Datos Bancarios}{27}{subsubsection.7.2.3.2}%
-\contentsline {subsection}{\numberline {7.2.4}Constantes (Uso Futuro y Lógica de Contrato)}{27}{subsection.7.2.4}%
-\contentsline {subsubsection}{\numberline {7.2.4.1}Parámetros Oficiales de Seguridad Social}{27}{subsubsection.7.2.4.1}%
-\contentsline {subsubsection}{\numberline {7.2.4.2}Condiciones Laborales y Retributivas}{27}{subsubsection.7.2.4.2}%
-\contentsline {subsubsection}{\numberline {7.2.4.3}Temporalidad, Antigüedad y Periodo de Prueba}{28}{subsubsection.7.2.4.3}%
-\contentsline {chapter}{\numberline {8}Pruebas}{29}{chapter.8}%
-\contentsline {section}{\numberline {8.1}Pruebas de seguridad}{29}{section.8.1}%
-\contentsline {subsection}{\numberline {8.1.1}Elevación de privilegios}{29}{subsection.8.1.1}%
-\contentsline {subsection}{\numberline {8.1.2}Path Traversal}{30}{subsection.8.1.2}%
-\contentsline {chapter}{\numberline {9}Impacto del trabajo}{31}{chapter.9}%
-\contentsline {section}{\numberline {9.1}Impacto general}{31}{section.9.1}%
-\contentsline {section}{\numberline {9.2}Objetivos de Desarrollo Sostenible}{32}{section.9.2}%
-\contentsline {chapter}{\numberline {10}Resultados y conclusiones}{33}{chapter.10}%
-\contentsline {section}{\numberline {10.1}Resultados}{33}{section.10.1}%
-\contentsline {section}{\numberline {10.2}Conclusiones personales}{34}{section.10.2}%
-\contentsline {section}{\numberline {10.3}Trabajo futuro}{34}{section.10.3}%
-\contentsline {chapter}{\numberline {11}Anexo}{35}{chapter.11}%
+\contentsline {subsection}{\numberline {7.1.2}Edición de Datos y Trazabilidad}{26}{subsection.7.1.2}%
+\contentsline {section}{\numberline {7.2}Datos del Formulario de Empleados}{27}{section.7.2}%
+\contentsline {subsection}{\numberline {7.2.1}Datos de Identificación y Contacto}{28}{subsection.7.2.1}%
+\contentsline {subsubsection}{\numberline {7.2.1.1}Identificación Oficial y Afiliación}{28}{subsubsection.7.2.1.1}%
+\contentsline {subsubsection}{\numberline {7.2.1.2}Filiación y Datos Personales}{29}{subsubsection.7.2.1.2}%
+\contentsline {subsubsection}{\numberline {7.2.1.3}Información de Contacto}{29}{subsubsection.7.2.1.3}%
+\contentsline {subsection}{\numberline {7.2.2}Datos de Domicilio}{29}{subsection.7.2.2}%
+\contentsline {subsubsection}{\numberline {7.2.2.1}Dirección Física y Geográfica}{29}{subsubsection.7.2.2.1}%
+\contentsline {subsection}{\numberline {7.2.3}Datos de Contrato y Formación}{29}{subsection.7.2.3}%
+\contentsline {subsubsection}{\numberline {7.2.3.1}Vinculación Corporativa y Académica}{29}{subsubsection.7.2.3.1}%
+\contentsline {subsubsection}{\numberline {7.2.3.2}Condiciones y Datos Bancarios}{30}{subsubsection.7.2.3.2}%
+\contentsline {subsection}{\numberline {7.2.4}Constantes (Uso Futuro y Lógica de Contrato)}{30}{subsection.7.2.4}%
+\contentsline {subsubsection}{\numberline {7.2.4.1}Parámetros Oficiales de Seguridad Social}{30}{subsubsection.7.2.4.1}%
+\contentsline {subsubsection}{\numberline {7.2.4.2}Condiciones Laborales y Retributivas}{30}{subsubsection.7.2.4.2}%
+\contentsline {subsubsection}{\numberline {7.2.4.3}Temporalidad, Antigüedad y Periodo de Prueba}{30}{subsubsection.7.2.4.3}%
+\contentsline {chapter}{\numberline {8}Pruebas}{31}{chapter.8}%
+\contentsline {section}{\numberline {8.1}Pruebas de seguridad}{31}{section.8.1}%
+\contentsline {subsection}{\numberline {8.1.1}Elevación de privilegios}{31}{subsection.8.1.1}%
+\contentsline {subsection}{\numberline {8.1.2}Path Traversal}{32}{subsection.8.1.2}%
+\contentsline {chapter}{\numberline {9}Impacto del trabajo}{33}{chapter.9}%
+\contentsline {section}{\numberline {9.1}Impacto general}{33}{section.9.1}%
+\contentsline {section}{\numberline {9.2}Objetivos de Desarrollo Sostenible}{34}{section.9.2}%
+\contentsline {chapter}{\numberline {10}Resultados y conclusiones}{35}{chapter.10}%
+\contentsline {section}{\numberline {10.1}Resultados}{35}{section.10.1}%
+\contentsline {section}{\numberline {10.2}Conclusiones personales}{36}{section.10.2}%
+\contentsline {section}{\numberline {10.3}Trabajo futuro}{36}{section.10.3}%
+\contentsline {chapter}{\numberline {11}Anexo}{37}{chapter.11}%

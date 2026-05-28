@@ -29,7 +29,8 @@ En este caso, como la página web no es una de tipo SPA (Single Page Application
 
 En una primera prueba, en fase de desarrollo de la página, se comprobó que esto podía ser posible, ya que durante la creación de la página, nunca fue considerado ese caso y, por lo tanto, no había puestas reglas de seguridad que bloquearan dicho comportamiento.
 
-Sin embargo, una vez detectada esta vulnerabilidad, se añadió la siguiente regla de seguridad en el frontend:
+Sin embargo, una vez detectada esta vulnerabilidad, se añadió la siguiente regla de seguridad en el frontend, que está escrita con pseudocódigo para ilustrar el concepto, pero que se implementó de forma real en FlutterFlow utilizando la lógica de programación visual que esta plataforma ofrece, y que se aplicó a todas las páginas del sistema:
+
 \begin{verbatim}
 // Ejemplo de regla de seguridad para prevenir path traversal
 si (tengo acceso a la página solicitada){
