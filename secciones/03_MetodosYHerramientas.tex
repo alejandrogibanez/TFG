@@ -1,0 +1,76 @@
+\chapter{Metodología y Herramientas} \label{chp:metodos-herramientas}
+
+Este capítulo está dedicado a describir de forma detallada la metodología de trabajo seguida durante la realización de este Trabajo de Fin de Grado, así como a exponer exhaustivamente todas las herramientas informáticas empleadas. Estas herramientas abarcan desde el entorno de desarrollo y la infraestructura en la nube, hasta el software de gestión, colaboración y redacción del documento final.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Metodología de Desarrollo} \label{sct:metodologia}
+
+Para la realización de este sistema se ha optado por un enfoque iterativo y un modelo de desarrollo ágil basado en la creación de prototipos funcionales (Prototipado). Este método permite disponer de vistas de interfaz navegables de forma temprana para validar los requisitos visuales antes de implementar la lógica de negocio subyacente. 
+
+El ciclo de desarrollo se ha dividido en fases incrementales: comenzó con la revisión y diseño de la interfaz de usuario (UX/UI) en plataformas \textit{Low-Code}, prosiguió con la implementación de funciones críticas y algoritmos de validación en el lado del cliente, se complementó con la configuración de la arquitectura de bases de datos NoSQL y funciones en la nube, y finalizó con la integración y pruebas del sistema simulado. Esta metodología ha permitido adaptar el sistema de manera flexible a los estrictos requerimientos de segregación de datos que impone el RGPD.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Herramientas Empleadas} \label{sct:herramientas}
+
+A continuación, se describen las diferentes herramientas empleadas en el proyecto, categorizadas según su propósito dentro del ciclo de vida del desarrollo y la gestión del trabajo.
+
+\subsection{Herramientas de Colaboración y Gestión Laboral} \label{subsct:herramientas_gestion}
+
+Para la planificación, comunicación y gestión diaria del proyecto, se ha hecho uso de las siguientes herramientas corporativas:
+
+\subsubsection{Microsoft Teams}
+Es una plataforma unificada de comunicación y colaboración empresarial de Microsoft que integra chats, videollamadas y almacenamiento de archivos en la nube. \textit{Se ha elegido esta herramienta porque es el estándar corporativo y académico ideal para coordinar el trabajo, realizar reuniones de seguimiento con la dirección del proyecto y centralizar las dudas de manera fluida y asíncrona.}
+
+\subsubsection{Microsoft Word}
+Es un procesador de textos ampliamente utilizado que forma parte de la suite de Microsoft Office. \textit{Se ha empleado principalmente en las fases iniciales del proyecto para la redacción de los documentos de análisis funcional, diseño de bases de datos y la propuesta inicial del TFG, dada su facilidad para el formateo rápido y la revisión de borradores}.
+
+\subsubsection{Microsoft PowerPoint}
+Es un software de presentación visual. \textit{Se ha elegido para la creación de esquemas visuales, mapas conceptuales de alto nivel y, finalmente, para diseñar las diapositivas que apoyarán la defensa pública del Trabajo Fin de Grado ante el tribunal.}
+
+\subsubsection{Microsoft Excel}
+Es una aplicación de hojas de cálculo especializada en el manejo y análisis de datos estructurados. \textit{Se ha utilizado en este proyecto para la revisión, limpieza y filtrado de los datos maestros descargados (como los listados de municipios, códigos postales y países), permitiendo eliminar duplicados y organizar la información antes de importarla a la base de datos}.
+
+\subsubsection{Microsoft Copilot}
+Es un asistente virtual impulsado por Inteligencia Artificial integrado en el ecosistema de Microsoft. \textit{Se ha elegido como herramienta de apoyo para agilizar la resolución de dudas técnicas, la generación de ideas de estructuración de documentos y la depuración de pequeños fragmentos de código durante la fase de investigación.}
+
+\subsection{Herramientas de Desarrollo Frontend} \label{subsct:herramientas_frontend}
+
+La interfaz con la que interactúan los usuarios de las gestorías se ha construido apoyándose en las siguientes tecnologías:
+
+\subsubsection{FlutterFlow}
+Es una plataforma de desarrollo visual \textit{Low-Code} basada en el \textit{framework} Flutter que permite construir interfaces de usuario multiplataforma (web y móvil) de manera gráfica. \textit{Se ha elegido esta plataforma porque acelera drásticamente la creación del diseño UX/UI mediante componentes visuales, generando automáticamente código nativo y facilitando una integración directa, rápida y sin fisuras con el ecosistema de Firebase}.
+
+\subsubsection{Dart}
+Es un lenguaje de programación optimizado para el desarrollo de interfaces de usuario rápidas en múltiples plataformas, creado por Google y utilizado como motor detrás de Flutter. \textit{Se ha elegido porque es el lenguaje nativo requerido por FlutterFlow para programar la lógica de programación y estructuras de datos en el lado del cliente (como las estrictas validaciones algorítmicas del formato DNI/NIE y el control de rangos de fechas)}.
+
+\subsection{Herramientas de Desarrollo Backend e Infraestructura} \label{subsct:herramientas_backend}
+
+Para soportar la lógica de negocio segura, el almacenamiento y la arquitectura \textit{Multi-Tenant}, se ha empleado la suite de Google:
+
+\subsubsection{Firebase}
+Es una plataforma en la nube orientada al desarrollo de aplicaciones (\textit{Backend-as-a-Service}) que proporciona múltiples herramientas integradas de infraestructura. \textit{Se ha elegido esta tecnología porque permite abstraer toda la gestión, mantenimiento y escalabilidad de los servidores físicos, ofreciendo un entorno seguro y unificado para la base de datos, autenticación y despliegue web}.
+
+\subsubsection{Firestore}
+Es una base de datos NoSQL documental, flexible y escalable alojada en la nube, perteneciente al ecosistema de Firebase. \textit{Se ha elegido como núcleo del modelo de datos porque su estructura basada en colecciones, documentos y referencias cruzadas (\textit{Document Reference}) se adapta de manera excelente a arquitecturas Multi-Tenant, garantizando la separación estricta de la información por empresa, requisito innegociable para cumplir con el RGPD}.
+
+\subsubsection{Firebase Authentication}
+Es el servicio de Firebase encargado de la identificación de usuarios y la gestión de contraseñas de forma segura. \textit{Se ha elegido porque provee una solución robusta y lista para usar que se integra de manera nativa con las reglas de seguridad de Firestore, permitiendo establecer controles de acceso granulares basados en roles (administrador, RRHH, supervisor) de manera eficiente}.
+
+\subsection{Herramientas de Apoyo y Control de Versiones} \label{subsct:herramientas_apoyo}
+
+\subsubsection{GitHub}
+Es una plataforma de alojamiento en la nube orientada al desarrollo colaborativo de software que utiliza el sistema de control de versiones Git. \textit{Se ha elegido esta herramienta porque representa el estándar de la industria para mantener un registro histórico inmutable de los cambios en el código, garantizando la seguridad del código fuente generado y permitiendo recuperar versiones estables del proyecto en caso de errores críticos.}
+
+\subsection{Herramientas de Redacción y Formato} \label{subsct:herramientas_redaccion}
+
+Para la elaboración final de la memoria académica se han utilizado los siguientes recursos:
+
+\subsubsection{Visual Studio Code}
+Es un editor de código fuente ligero, extensible y altamente personalizable. \textit{Se ha elegido porque ofrece un soporte excelente mediante extensiones creadas por la comunidad, resultando ser la herramienta idónea tanto para examinar y procesar los grandes archivos JSON de la base de datos, como para escribir y compilar el documento final de la memoria.}
+
+\subsubsection{LaTeX}
+Es un sistema de composición de textos de alta calidad, diseñado para la producción de documentación técnica y científica. \textit{Se ha elegido en las fases finales del proyecto porque permite separar el contenido del formato visual, garantizando una presentación tipográfica profesional, una gestión impecable de la bibliografía y un cumplimiento riguroso de los estándares de estilo académicos exigidos por la universidad.}

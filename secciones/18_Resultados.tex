@@ -1,0 +1,45 @@
+\chapter{Resultados y conclusiones} \label{chp:resultados}
+
+<<Breve explicación, por secciones, de los contenidos de este capítulo>>
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Resultados} \label{sct:resultados_resultados}
+
+<<Resumen de resultados obtenidos en el TFG>>
+
+En este TFG se ha desarrollado una aplicación web de gestión de empresas y empleados, con un sistema de autenticación basado en Google Auth y una arquitectura multi-tenant que garantiza la segregación de datos entre diferentes organizaciones. La aplicación permite a los administradores crear nuevas empresas y gestionar sus datos, mientras que los usuarios con permisos de recursos humanos pueden gestionar a los empleados asociados a cada empresa. Además, se han implementado medidas de seguridad para proteger la información sensible y cumplir con las normativas de protección de datos.
+
+En cuanto a los resultados específicos, se han logrado los siguientes objetivos:
+\begin{itemize}
+    \item Implementación de un sistema de autenticación seguro y eficiente utilizando Google Auth, que permite a los usuarios iniciar sesión con sus credenciales de Google y garantiza la protección de sus datos de acceso.
+    \item Desarrollo de un módulo de gestión de empresas que permite a los administradores crear nuevas empresas y gestionar sus datos, incluyendo información legal, fiscal y de cotización.
+    \item Implementación de un sistema de control de acceso basado en roles, que permite a los usuarios con permisos de recursos humanos gestionar a los empleados asociados a cada empresa, mientras que los administradores tienen acceso a todas las funcionalidades de gestión.
+    \item Garantía de la segregación de datos entre diferentes organizaciones mediante una arquitectura multi-tenant, que asegura que cada empresa solo pueda acceder a su propia información y no a la de otras empresas.
+    \item Cumplimiento de las normativas de protección de datos mediante la implementación de medidas de seguridad para proteger la información sensible de los usuarios y las empresas, así como la inclusión de cláusulas de privacidad en el proceso de alta de empleados.
+\end{itemize}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Conclusiones personales} \label{sct:resultados_conclusiones}
+
+<<Conclusiones personales del estudiante sobre el trabajo realizado>>
+
+Este trabajo de fin de grado ha sido una experiencia enriquecedora que me ha permitido aplicar los conocimientos adquiridos a lo largo de mi formación en un proyecto real y complejo. A lo largo del desarrollo de la aplicación, he enfrentado diversos desafíos técnicos y de diseño que me han obligado a investigar, aprender nuevas tecnologías y encontrar soluciones creativas para superar los obstáculos. He aprendido a trabajar con Google Auth para implementar un sistema de autenticación seguro, así como a diseñar una arquitectura multi-tenant que garantiza la segregación de datos entre diferentes organizaciones. Además, he adquirido experiencia en la gestión de permisos y roles, lo que me ha permitido crear una aplicación que se adapta a las necesidades de diferentes tipos de usuarios dentro de una empresa.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Trabajo futuro} \label{sct:resultados_trabajofuturo}
+
+<<Trabajo futuro que no se haya podido realizar o siguientes pasos que tomará el desarrollo realizado en este TFG>>
+Entre las mejoras que se podrían implementar en un futuro se encuentran:
+\begin{itemize}
+    \item Implementación de notificaciones automáticas por correo electrónico para eventos clave, como la creación de una nueva empresa o la asignación de un nuevo empleado a una empresa.
+    \item Implementación de mensajes de confirmación en el frontend para acciones críticas, como la creación de una nueva empresa o la asignación de un nuevo empleado a una empresa, para mejorar la experiencia del usuario y proporcionar retroalimentación inmediata sobre el éxito de sus acciones.
+    \item Integración del inicio de sesión en la aplicación con una cuenta de Google, utilizando el sistema de autenticación de Google Auth para simplificar el proceso de acceso y mejorar la seguridad. Aunque en la imagen de inicio de sesión aparece dicho botón, esta funcionalidad no se ha podido implementar en el desarrollo actual del TFG, entre otras razones, porque el sistema de creación de usuarios crea a la vez el perfil de autenticación y el perfil de usuario, lo que dificulta la integración con Google Auth. Sin embargo, esta mejora se considera una prioridad para el futuro desarrollo de la aplicación, ya que proporcionaría una experiencia de usuario más fluida y segura.
+    \item Creación de un robusto menú de configuración, en el que podrían aparecer opciones como la de cambiar la contraseña, modificar el perfil de usuario, gestionar las empresas a las que tiene acceso, etc. Este menú de configuración se podría implementar como un componente adicional en el frontend, accesible desde la página de inicio o desde cualquier otra sección de la aplicación, y permitiría a los usuarios personalizar su experiencia y gestionar sus datos de manera más eficiente.
+\end{itemize}

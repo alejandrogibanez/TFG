@@ -1,0 +1,46 @@
+\chapter{Pruebas} \label{chp:pruebas}
+% \chapter{Desarrollo de ...} \label{chp:desarrollo}
+
+<<Breve explicación, por secciones, de los contenidos de este capítulo>>
+
+En este capítulo se describen las pruebas de seguridad que se han realizado para comprobar la robustez del sistema frente a errores de diseño o implementación, así como la validación de los objetivos planteados. Se detallan los casos de prueba, los resultados obtenidos y se analizan las posibles vulnerabilidades detectadas durante el proceso de testeo.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Pruebas de seguridad} \label{sct:pruebas:seguridad}
+
+\subsection{Elevación de privilegios}
+<<Descripción de la prueba de elevación de privilegios, incluyendo el método utilizado para intentar obtener acceso no autorizado a funciones o datos restringidos, los resultados obtenidos y las medidas implementadas para mitigar esta vulnerabilidad.>>
+
+La elevación de privilegios es una vulnerabilidad crítica que permite a un atacante obtener permisos más altos de los que le han sido asignados. Para probar esta vulnerabilidad, se realizaron intentos de acceso a funciones administrativas utilizando cuentas con permisos limitados.
+
+Para el caso individual de esta aplicación, la elevación de privilegios consiste en acceder a funciones, por ejemplo, por parte de un usuario solo con permisos de RRHH, a funciones que están reservadas solamente para aquellos que posean permisos de administrador o incluso de supervisor.
+
+La prueba consistió en iniciar sesión con una cuenta únicamente con permisos de RRHH, y tratar de registrar un nuevo usuario con permisos de administrador, lo cual no debería ser posible.
+
+En la fase inicial de desarrollo, se detectó que esta vulnerabilidad existía, ya que no se habían implementado las reglas de seguridad necesarias para evitarlo. Estas reglas simplemente consistían en bloquear las casillas del formulario correspondientes a los permisos de administrador, RRHH y supervisor, dejándolas deshabilitadas solo para aquelllos usuarios con los permisos adecuados.
+Tras la implementación de estas medidas de seguridad, se volvió a realizar esta prueba, dando como resultado que el sistema bloqueaba correctamente el acceso a funciones no autorizadas. El usuario intentaría hacer click en la casilla para activar dichos permisos, solo para que la casilla no cambie su estado, permaneciendo deshabilitada y sin permitir la selección de permisos que no correspondieran al rol del usuario.
+
+\subsection{Path Traversal}
+<<Descripción de la prueba de path traversal, incluyendo el método utilizado para intentar acceder a archivos o directorios no autorizados, los resultados obtenidos y las medidas implementadas para mitigar esta vulnerabilidad.>>
+La traversing de rutas es una vulnerabilidad que permite a un atacante acceder a archivos o directorios que no deberían estar disponibles. Para probar esta vulnerabilidad, se realizaron intentos de acceso a recursos del sistema utilizando rutas relativas o absolutas no autorizadas.
+En este caso, como la página web no es una de tipo SPA (Single Page Application), sino una de tipo MPA (Multi Page Application), es posible que un atacante intente acceder, modificando el final de la URL, a páginas o recursos a los que no debería acceder.
+
+En una primera prueba, en fase de desarrollo de la página, se comprobó que esto podía ser posible, ya que durante la creación de la página, nunca fue considerado ese caso y, por lo tanto, no había puestas reglas de seguridad que bloquearan dicho comportamiento.
+
+Sin embargo, una vez detectada esta vulnerabilidad, se añadió la siguiente regla de seguridad en el frontend:
+\begin{verbatim}
+// Ejemplo de regla de seguridad para prevenir path traversal
+si (tengo acceso a la página solicitada){
+    //No hago nada, dejo que el usuario acceda a la página
+}
+sino {
+    //Redirijo al usuario al menú principal
+    redirigir('/menu_principal');
+}
+\end{verbatim}
+
+Tras la aplicación de estas medidas de seguridad en todas las páginas del sistema, se volvió a relizar esta prueba, dando como resultado que el sistema bloqueaba correctamente el acceso a páginas no autorizadas, redirigiendo al usuario al menú principal o homepage.
+Estas reglas de seguridad también sirven para bloquear el acceso a la aplicación a un usuario que no haya iniciado sesión, ya que, al no tener ningún rol asignado, no tendría acceso a ninguna página del sistema, redirigiéndolo al menú de inicio de sesión.
+

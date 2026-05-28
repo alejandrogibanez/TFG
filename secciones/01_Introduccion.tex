@@ -1,0 +1,67 @@
+\chapter{Introducción} \label{chp:intro}
+
+Este primer capítulo presenta una visión general del Trabajo de Fin de Grado. En la primera sección se expone la motivación y necesidad de abordar la problemática actual en las gestorías laborales. A continuación, se detalla el contexto tecnológico y normativo del proyecto. Posteriormente, se define el objetivo principal y se desglosa en una serie de objetivos específicos técnicos. Finalmente, se describe la estructura del resto del documento para facilitar su lectura.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Motivación del proyecto} \label{sct:intro:motivacion}
+
+En España, la normativa legal obliga a las empresas a solicitar el alta de sus trabajadores en el régimen de la Seguridad Social de manera previa al inicio real de la prestación de los servicios. En la actualidad, este proceso resulta ser altamente repetitivo y dependiente de herramientas de escritorio proporcionadas por la administración. 
+
+La motivación principal de llevar a cabo este Trabajo de Fin de Grado es desarrollar una aplicación web/móvil destinada a automatizar y simplificar de manera drástica el proceso de alta de empleados en la Seguridad Social por parte de las gestorías. Al gestionar múltiples clientes, los despachos laborales sufren una importante carga administrativa y propensión a cometer errores en la introducción de datos. Por consiguiente, existe la necesidad imperante de crear una herramienta moderna que optimice este flujo de trabajo, la cual deberá garantizar la integridad de los datos, la trazabilidad exhaustiva de cada alta procesada y el cumplimiento estricto de la normativa europea de protección de datos (RGPD).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Contexto del proyecto} \label{sct:intro:contexto}
+
+El contexto tecnológico de las comunicaciones obligatorias con la Tesorería General de la Seguridad Social (TGSS) en España gira en torno al Sistema RED (Remisión Electrónica de Datos). Este sistema oficial exige el uso de ficheros muy específicos y la gestión local de certificados digitales, careciendo de una API web pública, directa y sencilla basada en estándares modernos (como REST/JSON). Esta barrera tecnológica impide una integración ágil desde plataformas en la nube. 
+
+Para sortear este obstáculo y aportar una solución, este proyecto se contextualiza en el uso de tecnologías de vanguardia bajo el paradigma \textit{Low-Code}. Se propone la utilización de \textbf{FlutterFlow} para el desarrollo de la interfaz frontend multiplataforma, y de \textbf{Firebase} como infraestructura backend (\textit{Backend-as-a-Service}). Dado que el sistema debe dar servicio a gestorías que manejan múltiples empresas, el desarrollo se enmarca en una arquitectura \textit{Multi-Tenant} (multi-inquilino), utilizando la base de datos NoSQL \textbf{Firestore} para garantizar la segregación absoluta y segura de los datos por cada empresa. 
+
+Además, debido a la imposibilidad técnica de interactuar directamente con el Sistema RED sin un complejo \textit{software} intermediario, el proyecto contempla en su contexto de desarrollo la implementación de una \textit{Mock API} (API simulada) mediante Cloud Functions, la cual actuará verificando y transformando los datos, así como simulando las respuestas de la administración.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Objetivos} \label{sct:intro:objetivos}
+
+El objetivo principal de este Trabajo de Fin de Grado es diseñar y desarrollar una plataforma web o móvil mediante tecnología \textit{Low-Code} que automatice y simplifique de forma segura el proceso de alta de empleados en múltiples empresas, garantizando la integridad de los datos, la trazabilidad del proceso y cumpliendo estrictamente con el RGPD y la simulación de la API de la Seguridad Social (TGSS).
+
+Para alcanzar este propósito general, el proyecto se divide en los siguientes objetivos específicos:
+
+\begin{itemize}
+
+    \item[•] \textbf{Implementar un modelo de seguridad Multi-Tenant:} Garantizar la segregación estricta de datos utilizando referencias a documentos (\textit{Document Reference}) en Firestore, de forma que se soporte una gestión granular de permisos (administrador, RRHH, supervisor) cumpliendo con el RGPD.
+
+    \item[•] \textbf{Desarrollar lógica algorítmica para validaciones críticas:} Crear formularios de captura de datos (personales, contrato, jornadas) e implementar validaciones rigurosas en tiempo real en el \textit{frontend} utilizando Dart (por ejemplo, validación de formato DNI/NIE y restricciones de fechas lógicas).
+
+    \item[•] \textbf{Diseñar y ejecutar Cloud Functions para la integración:} Programar funciones en la nube que actúen como \textit{middleware} seguro para gestionar la transformación de datos, la gestión de tokens y la simulación de las llamadas a la API de la Seguridad Social externa.
+
+    \item[•] \textbf{Diseñar un sistema de Historial y Trazabilidad:} Implementar una colección histórica (\textit{altas\_history}) que permita el registro constante del estado de cada trámite (enviado, error, aceptado) y la visualización del historial segmentado por empresa y usuario.
+
+    \item[•] \textbf{Aplicar principios de experiencia de usuario (UX):} Desarrollar interfaces modernas y eficientes orientadas a gestorías, ofreciendo un entorno accesible que notifique adecuadamente alertas y mensajes de error en caso de datos inválidos.
+
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Estructura del Documento (revisar)} \label{sct:intro_estructura}
+
+Para facilitar la lectura y comprensión de este trabajo, y siguiendo las recomendaciones académicas para memorias de ingeniería, el resto del documento se ha estructurado de la siguiente forma:
+
+\begin{itemize}
+    \item \textbf{Capítulo 2. Estado del Arte y Análisis de Requisitos:} En este capítulo se analiza la problemática vigente con el Sistema RED y se enumeran de manera exhaustiva los requerimientos funcionales y no funcionales del sistema propuesto.
+    \item \textbf{Capítulo 3. Metodología y Tecnologías Empleadas:} Se detalla el enfoque de desarrollo utilizado y se justifican ampliamente las herramientas seleccionadas para el proyecto (\textit{Flutterflow, Firebase, Firestore, Cloud Functions}).
+    \item \textbf{Capítulo 4. Módulo de gestión:} Detalla el núcleo del sistema enfocado en la administración, jerarquía y delegación de permisos de usuarios, así como la estructura frontend y backend asociada a la autenticación segura.   
+    \item \textbf{Capítulo 5. Módulo de Autenticación y Control de Roles:} Describe la arquitectura del sistema de accesos, detallando el almacenamiento dual entre Google Auth y Firestore, la segregación de permisos por roles  y los mecanismos de control Multi-Tenant para el estricto cumplimiento del RGPD.
+    \item \textbf{Capítulo 7. Impacto:} Se realiza un análisis crítico de los resultados obtenidos, valorando el grado de cumplimiento de los objetivos planteados y proponiendo posibles mejoras y líneas futuras de desarrollo.
+    \item \textbf{Capítulo 8. Resultados:} Se incluyen capturas de pantalla, diagramas y fragmentos de código relevantes que ilustran el funcionamiento del sistema desarrollado.
+    \item \textbf{Capítulo 9. Anexos: } Se adjuntan documentos complementarios como el código fuente completo, diagramas de arquitectura detallados, y cualquier otro material que aporte valor a la comprensión del proyecto.
+    \item \textbf{Pruebas de seguridad:} Se describen las pruebas de seguridad realizadas para validar la robustez del sistema frente a vulnerabilidades comunes como elevación de privilegios y path traversal, detallando los métodos utilizados, los resultados obtenidos y las medidas implementadas para mitigar dichas vulnerabilidades.
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

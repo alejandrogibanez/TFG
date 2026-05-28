@@ -1,0 +1,21 @@
+\chapter*{Resumen} \label{chp:abstract}
+En España, el marco legal exige a las empresas tramitar el alta de sus trabajadores en la Seguridad Social de manera previa al inicio de su actividad laboral. Este proceso se comunica habitualmente a través del Sistema RED y herramientas de escritorio específicas como SILTRA \cite{seguridadsocial2026}. No obstante, la interfaz actual de la administración presenta una notable complejidad técnica y una experiencia de usuario poco intuitiva, lo que obliga a las gestorías a realizar tareas manuales propensas a errores. La ausencia de una API REST pública por parte de la Tesorería General de la Seguridad Social (TGSS) agrava esta carga operativa al requerir una gestión fragmentada de certificados digitales.
+
+Este Trabajo de Fin de Grado (TFG) presenta el diseño y desarrollo de una plataforma web y móvil orientada a gestorías de Recursos Humanos que automatiza, digitaliza y simplifica el proceso de alta. El sistema se centra en la optimización de la experiencia de usuario (UX), sustituyendo la opacidad de los formularios oficiales por una interfaz comprensible que delega la complejidad de los cálculos y reglas de negocio a procesos de \textit{background} o segundo plano. Para ello, se ha diseñado una arquitectura \textit{Multi-Tenant} que garantiza la segregación estricta de la información y el cumplimiento del Reglamento General de Protección de Datos (RGPD)\cite{rgpd2016}.
+
+A nivel tecnológico, se ha empleado el paradigma \textit{Low-Code} \cite{lowcode2021richardson} mediante FlutterFlow y el ecosistema Firebase (Firestore y Cloud Functions). Tras la validación algorítmica de los datos en tiempo real, el sistema asegura la integridad de la información antes de su remisión. Ante la falta de una pasarela directa con la administración, el flujo de datos culmina en el envío de la información verificada hacia un \textit{endpoint} facilitado por la empresa, el cual actúa como nodo de comunicación final hacia la TGSS. Los resultados muestran un prototipo funcional robusto que reduce la carga cognitiva del operador y ofrece un entorno seguro, escalable y eficiente.
+
+\textbf{Palabras Clave}: Multi-Tenant, FlutterFlow, Firebase, UX, Abstracción de Procesos, Seguridad Social, RGPD, Low-Code.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter*{Abstract}
+In Spain, the legal framework requires companies to register employees with the Social Security system prior to their labor activity. This procedure is typically managed through the "Sistema RED" and specific desktop tools like SILTRA. However, the current administrative interface is characterized by high technical complexity and a non-intuitive user experience, forcing HR agencies into error-prone manual tasks. The absence of a public REST API from the General Treasury of the Social Security (TGSS) further increases this burden due to fragmented digital certificate management.
+
+This Final Degree Project (TFG) presents the design and development of a web and mobile platform for HR agencies that automates, digitizes, and simplifies the registration process. The system focuses on User Experience (UX) optimization, replacing the opacity of official forms with a clear interface that delegates complex calculations and business rules to background processes. To support this, a Multi-Tenant architecture was designed to ensure strict data segregation and compliance with the General Data Protection Regulation (GDPR).
+
+Technologically, the project leverages the Low-Code paradigm using FlutterFlow and the Firebase ecosystem (Firestore and Cloud Functions). Following real-time algorithmic validation to ensure data integrity, and given the lack of a direct gateway to the administration, the data flow concludes by transmitting the verified information to a company-provided endpoint, which serves as the final communication node with the TGSS. The results demonstrate a robust functional prototype that reduces the operator's cognitive load and provides a secure, scalable, and efficient environment.
+
+\textbf{Keywords}: Multi-Tenant, FlutterFlow, Firebase, UX, Process Abstraction, Social Security, GDPR, Low-Code.
