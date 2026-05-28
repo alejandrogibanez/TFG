@@ -15,6 +15,7 @@ Este módulo se encargará del login de los usuarios autorizados en mi empresa. 
 
 \section{Estructura del Frontend}
 El frontend de este módulo, implementado con tecnología \textit{Low-Code}, está estructurado principalmente en flujos de navegación que diferencian las áreas públicas de las privadas. La estructura del frontend se inicia en la \textbf{Login Page}, una vista sencilla que aloja el formulario de credenciales (correo y contraseña) con validaciones en tiempo real para evitar envíos de formatos incorrectos.
+
 Una vez superado el login, el usuario es redirigido a la \textbf{Homepage}. La estructura interna de esta pantalla privada incluye un menú de navegación lateral (Drawer) fijo y un cuerpo central. La interfaz hace un fuerte uso de lógicas de \textbf{visibilidad condicional}; dependiendo del tipo de usuario (Admin, RRHH, Supervisor) que haya iniciado sesión, la estructura del frontend oculta o muestra automáticamente las distintas pantallas de gestión (como el formulario para dar de alta a una nueva empresa, que solo será visible para el administrador).
 
 \section{Estructura del Backend}
