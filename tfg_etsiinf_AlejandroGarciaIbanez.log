@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.5.27)  28 MAY 2026 19:56
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.5.27)  29 MAY 2026 10:58
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**tfg_etsiinf_NombreApellidos.tex
-(./tfg_etsiinf_NombreApellidos.tex
+**tfg_etsiinf_AlejandroGarciaIbanez.tex
+(./tfg_etsiinf_AlejandroGarciaIbanez.tex
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-04-29>
 (./secciones/_DatosTFG.tex) (./include/Preambulo.tex
@@ -1156,13 +1156,13 @@ File: t1pbk.fd 2001/06/04 font definitions for T1/pbk.
 LaTeX Font Info:    Font shape `T1/pbk/m/n' in size <10.95> not available
 (Font)              Font shape `T1/pbk/l/n' tried instead on input line 22.
 
-(./tfg_etsiinf_NombreApellidos.aux
+(./tfg_etsiinf_AlejandroGarciaIbanez.aux
 LaTeX Info: Redefining \. on input line 12.
 LaTeX Info: Redefining \% on input line 12.
 Package babel Info: 'spanish' activates 'spanish' shorthands.
 (babel)             Reported  on input line 12.
 )
-\openout1 = `tfg_etsiinf_NombreApellidos.aux'.
+\openout1 = `tfg_etsiinf_AlejandroGarciaIbanez.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 22.
 LaTeX Font Info:    ... okay on input line 22.
@@ -1242,9 +1242,10 @@ e
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 Package hyperref Info: Link coloring ON on input line 22.
-(./tfg_etsiinf_NombreApellidos.out) (./tfg_etsiinf_NombreApellidos.out)
+(./tfg_etsiinf_AlejandroGarciaIbanez.out)
+(./tfg_etsiinf_AlejandroGarciaIbanez.out)
 \@outlinefile=\write5
-\openout5 = `tfg_etsiinf_NombreApellidos.out'.
+\openout5 = `tfg_etsiinf_AlejandroGarciaIbanez.out'.
 
 
 (c:/texlive/2025/texmf-dist/tex/latex/pdflscape/pdflscape.sty
@@ -1270,12 +1271,13 @@ File: english.lbx 2024/03/21 v3.20 biblatex localization (PK/MW)
 Package biblatex Info: Input encoding 'utf8' detected.
 Package biblatex Info: Automatic encoding selection.
 (biblatex)             Assuming data encoding 'utf8'.
-\openout4 = `tfg_etsiinf_NombreApellidos.bcf'.
+\openout4 = `tfg_etsiinf_AlejandroGarciaIbanez.bcf'.
 
 Package biblatex Info: Trying to load bibliographic data...
-Package biblatex Info: ... file 'tfg_etsiinf_NombreApellidos.bbl' not found.
+Package biblatex Info: ... file 'tfg_etsiinf_AlejandroGarciaIbanez.bbl' not fou
+nd.
 
-No file tfg_etsiinf_NombreApellidos.bbl.
+No file tfg_etsiinf_AlejandroGarciaIbanez.bbl.
 Package biblatex Info: Reference section=0 on input line 22.
 Package biblatex Info: Reference segment=0 on input line 22.
 \c@lstlisting=\count526
@@ -1380,7 +1382,7 @@ LaTeX Font Info:    Font shape `T1/pbk/m/n' in size <8> not available
 
 [2
 
-] (./tfg_etsiinf_NombreApellidos.toc
+] (./tfg_etsiinf_AlejandroGarciaIbanez.toc
 LaTeX Info: Redefining \sptext on input line 1.
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
@@ -1422,7 +1424,7 @@ Overfull \hbox (1.75185pt too wide) detected at line 100
 
 )
 \tf@toc=\write6
-\openout6 = `tfg_etsiinf_NombreApellidos.toc'.
+\openout6 = `tfg_etsiinf_AlejandroGarciaIbanez.toc'.
 
 
 
@@ -1646,8 +1648,12 @@ Cap\'{\i }tulo 4.
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
 [12]
+
+LaTeX Info: Redefining \. on input line 1.
+LaTeX Info: Redefining \% on input line 1.
+[13]
 Cap\'{\i }tulo 5.
-<imagenes/05_Login.png, id=599, 1092.33093pt x 610.53094pt>
+<imagenes/05_Login.png, id=603, 1092.33093pt x 610.53094pt>
 File: imagenes/05_Login.png Graphic file (type png)
 <use imagenes/05_Login.png>
 Package pdftex.def Info: imagenes/05_Login.png  used on input line 13.
@@ -1657,106 +1663,102 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
-[13
+[14
 
 ]
 
-LaTeX Info: Redefining \. on input line 34.
-LaTeX Info: Redefining \% on input line 34.
-[14
+LaTeX Info: Redefining \. on input line 35.
+LaTeX Info: Redefining \% on input line 35.
+[15
 pdfTeX warning (ext4): destination with the same identifier (name{figure.5.1}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.34 ...es acciones: \begin{itemize} \item \textbf
+l.35 ...es acciones: \begin{itemize} \item \textbf
                                                   {Seleccionar empresa:} De ...
  <./imagenes/05_Login.png>]
-<imagenes/05_GoogleAuth.png, id=610, 718.93594pt x 347.79938pt>
+
+LaTeX Info: Redefining \. on input line 59.
+LaTeX Info: Redefining \% on input line 59.
+[16]
+<imagenes/05_GoogleAuth.png, id=618, 718.93594pt x 347.79938pt>
 File: imagenes/05_GoogleAuth.png Graphic file (type png)
 <use imagenes/05_GoogleAuth.png>
-Package pdftex.def Info: imagenes/05_GoogleAuth.png  used on input line 61.
+Package pdftex.def Info: imagenes/05_GoogleAuth.png  used on input line 62.
 (pdftex.def)             Requested size: 362.37598pt x 175.31091pt.
-
-
-LaTeX Info: Redefining \. on input line 63.
-LaTeX Info: Redefining \% on input line 63.
-[15]
-<imagenes/05_Firestore.png, id=615, 866.48718pt x 508.90125pt>
+<imagenes/05_Firestore.png, id=619, 866.48718pt x 508.90125pt>
 File: imagenes/05_Firestore.png Graphic file (type png)
 <use imagenes/05_Firestore.png>
-Package pdftex.def Info: imagenes/05_Firestore.png  used on input line 66.
+Package pdftex.def Info: imagenes/05_Firestore.png  used on input line 67.
 (pdftex.def)             Requested size: 362.37598pt x 212.82854pt.
 
 
-LaTeX Info: Redefining \. on input line 76.
-LaTeX Info: Redefining \% on input line 76.
-[16
+LaTeX Info: Redefining \. on input line 77.
+LaTeX Info: Redefining \% on input line 77.
+[17
 pdfTeX warning (ext4): destination with the same identifier (name{figure.5.2}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.76 
+l.77 
      
 pdfTeX warning (ext4): destination with the same identifier (name{figure.5.3}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.76 
+l.77 
       <./imagenes/05_GoogleAuth.png> <./imagenes/05_Firestore.png>]
-<imagenes/05_FormularioRegistro.png, id=624, 650.43pt x 618.05907pt>
+<imagenes/05_FormularioRegistro.png, id=629, 650.43pt x 618.05907pt>
 File: imagenes/05_FormularioRegistro.png Graphic file (type png)
 <use imagenes/05_FormularioRegistro.png>
 Package pdftex.def Info: imagenes/05_FormularioRegistro.png  used on input line
- 80.
+ 81.
 (pdftex.def)             Requested size: 362.37598pt x 344.34715pt.
 
 
-LaTeX Info: Redefining \. on input line 87.
-LaTeX Info: Redefining \% on input line 87.
-[17
+LaTeX Info: Redefining \. on input line 88.
+LaTeX Info: Redefining \% on input line 88.
+[18
 pdfTeX warning (ext4): destination with the same identifier (name{figure.5.4}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.87 
+l.88 
       <./imagenes/05_FormularioRegistro.png>]
 
-LaTeX Info: Redefining \. on input line 112.
-LaTeX Info: Redefining \% on input line 112.
-[18]
+LaTeX Info: Redefining \. on input line 111.
+LaTeX Info: Redefining \% on input line 111.
+[19]
 
-LaTeX Info: Redefining \. on input line 127.
-LaTeX Info: Redefining \% on input line 127.
-[19]) (./secciones/06_ModuloGestionEmpresas.tex
+LaTeX Info: Redefining \. on input line 128.
+LaTeX Info: Redefining \% on input line 128.
+[20]) (./secciones/06_ModuloGestionEmpresas.tex
 
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
-[20]
+[21]
 Cap\'{\i }tulo 6.
 
 
-[21
+[22
 
 ]
 
-LaTeX Info: Redefining \. on input line 40.
-LaTeX Info: Redefining \% on input line 40.
-[22]
-LaTeX Font Info:    Font shape `T1/pbk/m/n' in size <6> not available
-(Font)              Font shape `T1/pbk/l/n' tried instead on input line 56.
-) (./secciones/07_ModuloGestionEmpleados.tex
-
-LaTeX Info: Redefining \. on input line 1.
-LaTeX Info: Redefining \% on input line 1.
-[23]
+LaTeX Info: Redefining \. on input line 45.
+LaTeX Info: Redefining \% on input line 45.
+[23]) (./secciones/07_ModuloGestionEmpleados.tex
 
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
 [24]
+
+LaTeX Info: Redefining \. on input line 1.
+LaTeX Info: Redefining \% on input line 1.
+[25]
 Cap\'{\i }tulo 7.
 
 LaTeX Warning: File `ruta_menu_seleccion_empleados.png' not found on input line
- 15.
+ 21.
 
 
 ! Package pdftex.def Error: File `ruta_menu_seleccion_empleados.png' not found:
@@ -1766,10 +1768,10 @@ See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.15 ...twidth]{ruta_menu_seleccion_empleados.png}
+l.21 ...twidth]{ruta_menu_seleccion_empleados.png}
                                                   
 ? 
-LaTeX Font Info:    Trying to load font information for T1+pcr on input line 15
+LaTeX Font Info:    Trying to load font information for T1+pcr on input line 21
 .
 (c:/texlive/2025/texmf-dist/tex/latex/psnfss/t1pcr.fd
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
@@ -1778,11 +1780,21 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
-[25
+[26
 
 ]
 
-LaTeX Warning: File `ruta_menu_edicion.png' not found on input line 28.
+LaTeX Info: Redefining \. on input line 36.
+LaTeX Info: Redefining \% on input line 36.
+[27
+pdfTeX warning (ext4): destination with the same identifier (name{figure.7.1}) 
+has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.36 
+     ]
+
+LaTeX Warning: File `ruta_menu_edicion.png' not found on input line 39.
 
 
 ! Package pdftex.def Error: File `ruta_menu_edicion.png' not found: using draft
@@ -1792,25 +1804,11 @@ See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.28 ...idth=0.8\textwidth]{ruta_menu_edicion.png}
+l.39 ...idth=0.8\textwidth]{ruta_menu_edicion.png}
                                                   
 ? 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-
-LaTeX Info: Redefining \. on input line 32.
-LaTeX Info: Redefining \% on input line 32.
-[26
-pdfTeX warning (ext4): destination with the same identifier (name{figure.7.1}) 
-has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.32 
-     ]
-
-LaTeX Warning: File `ruta_formulario_empleado.png' not found on input line 39.
+LaTeX Warning: File `ruta_formulario_empleado.png' not found on input line 53.
 
 
 ! Package pdftex.def Error: File `ruta_formulario_empleado.png' not found: usin
@@ -1820,74 +1818,79 @@ See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.39 ...8\textwidth]{ruta_formulario_empleado.png}
+l.53 ...8\textwidth]{ruta_formulario_empleado.png}
                                                   
 ? 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
 
-
-
-LaTeX Info: Redefining \. on input line 43.
-LaTeX Info: Redefining \% on input line 43.
-[27
+LaTeX Info: Redefining \. on input line 57.
+LaTeX Info: Redefining \% on input line 57.
+[28
 pdfTeX warning (ext4): destination with the same identifier (name{figure.7.2}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.43 
+l.57 
      ]
 Underfull \vbox (badness 1286) has occurred while \output is active []
 
 
 
-LaTeX Info: Redefining \. on input line 53.
-LaTeX Info: Redefining \% on input line 53.
-[28
+LaTeX Info: Redefining \. on input line 70.
+LaTeX Info: Redefining \% on input line 70.
+[29
 pdfTeX warning (ext4): destination with the same identifier (name{figure.7.3}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.53 
+l.70 
      ]
 
-LaTeX Info: Redefining \. on input line 69.
-LaTeX Info: Redefining \% on input line 69.
-[29]) (./secciones/15_Pruebas.tex
+LaTeX Info: Redefining \. on input line 91.
+LaTeX Info: Redefining \% on input line 91.
+[30]) (./secciones/15_Pruebas.tex
 
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
-[30]
+[31]
+
+LaTeX Info: Redefining \. on input line 1.
+LaTeX Info: Redefining \% on input line 1.
+[32]
 Cap\'{\i }tulo 8.
 
 
-[31
+[33
 
 ]) (./secciones/17_Impacto.tex
 
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
-[32]
+[34]
 Cap\'{\i }tulo 9.
 
 
-[33
+[35
 
 ]) (./secciones/18_Resultados.tex
 
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
-[34]
+[36]
 Cap\'{\i }tulo 10.
 
 
-[35
+[37
 
-]) (./secciones/19_Anexos.tex
+]
+
+LaTeX Info: Redefining \. on input line 46.
+LaTeX Info: Redefining \% on input line 46.
+[38]) (./secciones/19_Anexos.tex
 
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
-[36]
+[39]
 Cap\'{\i }tulo 11.
 )
 
@@ -1895,9 +1898,9 @@ LaTeX Warning: Empty bibliography on input line 64.
 
 
 
-[37
+[40
 
-] (./tfg_etsiinf_NombreApellidos.aux
+] (./tfg_etsiinf_AlejandroGarciaIbanez.aux
 LaTeX Info: Redefining \sptext on input line 12.
 LaTeX Info: Redefining \. on input line 12.
 LaTeX Info: Redefining \% on input line 12.
@@ -1910,35 +1913,36 @@ L3 programming layer <2025-04-29>
 
 LaTeX Warning: There were undefined references.
 
-Package rerunfilecheck Info: File `tfg_etsiinf_NombreApellidos.out' has not cha
-nged.
-(rerunfilecheck)             Checksum: CEA44FF20362D4AFC3B34573B657B751;20514.
+Package rerunfilecheck Info: File `tfg_etsiinf_AlejandroGarciaIbanez.out' has n
+ot changed.
+(rerunfilecheck)             Checksum: F169E52FCEA5EFB59728757C1435CE96;20668.
 
 Package biblatex Warning: Please (re)run Biber on the file:
-(biblatex)                tfg_etsiinf_NombreApellidos
+(biblatex)                tfg_etsiinf_AlejandroGarciaIbanez
 (biblatex)                and rerun LaTeX afterwards.
 
-Package logreq Info: Writing requests to 'tfg_etsiinf_NombreApellidos.run.xml'.
-
-\openout1 = `tfg_etsiinf_NombreApellidos.run.xml'.
+Package logreq Info: Writing requests to 'tfg_etsiinf_AlejandroGarciaIbanez.run
+.xml'.
+\openout1 = `tfg_etsiinf_AlejandroGarciaIbanez.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 36255 strings out of 469590
- 686378 string characters out of 5474519
- 1520423 words of memory out of 5000000
- 62336 multiletter control sequences out of 15000+600000
- 655081 words of font info for 95 fonts, out of 8000000 for 9000
+ 36254 strings out of 469590
+ 686522 string characters out of 5474519
+ 1520453 words of memory out of 5000000
+ 62333 multiletter control sequences out of 15000+600000
+ 653605 words of font info for 93 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 104i,12n,108p,1629b,2449s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 104i,12n,108p,1635b,2449s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/texlive/2025/texmf-dist/fonts/type1/urw/bookman/ubkd8a.pfb><c:/texlive/20
 25/texmf-dist/fonts/type1/urw/bookman/ubkl8a.pfb><c:/texlive/2025/texmf-dist/fo
 nts/type1/urw/bookman/ubkli8a.pfb><c:/texlive/2025/texmf-dist/fonts/type1/urw/c
 ourier/ucrr8a.pfb>
-Output written on tfg_etsiinf_NombreApellidos.pdf (45 pages, 1541599 bytes).
+Output written on tfg_etsiinf_AlejandroGarciaIbanez.pdf (48 pages, 1545491 byte
+s).
 PDF statistics:
- 778 PDF objects out of 1000 (max. 8388607)
- 703 compressed objects within 8 object streams
- 153 named destinations out of 1000 (max. 500000)
+ 791 PDF objects out of 1000 (max. 8388607)
+ 713 compressed objects within 8 object streams
+ 156 named destinations out of 1000 (max. 500000)
  835 words of extra memory for PDF output out of 10000 (max. 10000000)
 

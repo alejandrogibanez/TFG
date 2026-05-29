@@ -2,31 +2,36 @@
 
 Este capítulo está dedicado a detallar el tercer módulo principal del sistema, centrado en la gestión integral de las distintas empresas clientes. En primer lugar, se abordan los procesos de creación y gestión de dichas entidades según los permisos asignados al usuario. A continuación, se detalla exhaustivamente la estructura y categorización de los datos maestros necesarios que conforman el formulario de registro de la empresa para cumplir con los requerimientos técnicos y legales.
 
+%6.1
 \section{Operativas de Gestión}
 
 El sistema diferencia la interacción con las empresas clientes de acuerdo con el rol y el nivel de acceso concedido al usuario en el módulo de gestión de identidades.
-
+%6.1.1
 \subsection{Creación de Nueva Empresa}
 
 La capacidad de dar de alta a nuevas empresas está restringida exclusivamente a los usuarios con permisos de “admin” (administrador). Esta acción se materializa mediante la cumplimentación de un formulario detallado de empresa en el frontend. En dicho proceso, que corresponde a los requerimientos abordados en las primeras etapas del desarrollo, el administrador debe introducir de manera precisa toda la información legal, fiscal y de cotización necesaria para habilitar la operativa de la empresa dentro de la plataforma.
-
-\subsection{Gestión de Empresa}
+%6.1.2
+\subsection{Gestión de Empresa (yo lo borraba)}
 
 La operativa continua sobre las entidades dadas de alta recae fundamentalmente en los usuarios con permisos de “rrhh” (recursos humanos). Al acceder al sistema, el usuario de recursos humanos debe escoger, a través de un panel de selección, la empresa específica sobre la que desea llevar a cabo sus gestiones (como dar de alta a nuevos empleados). Esta selección explícita es un paso obligatorio, con la única excepción de aquellos perfiles que hayan sido autorizados para acceder a una sola entidad, en cuyo caso el sistema obvia este paso y asigna automáticamente el entorno de trabajo correspondiente.
 
+%6.2
 \section{Datos del Formulario de Empresa}
 
 El formulario de alta de empresa cumplimentado por el administrador recoge una extensa batería de datos maestros, indispensables para que el sistema y sus futuras integraciones operen sin errores. Estos datos se dividen lógicamente en diversas secciones principales:
 
+%6.2.1
 \subsection{Identificación y Datos de Registro}
 
 Esta categoría engloba la información legal primaria que define y ubica a la entidad corporativa.
 
+%6.2.1.1
 \subsubsection{Identificación Corporativa}
 El formulario exige la generación de un \textbf{ID de la Empresa}, el cual actúa como clave única dentro del sistema, siendo el pilar fundamental para garantizar la segregación de datos (arquitectura Multi-Tenant). A nivel formal, se recoge la \textbf{Razón Social}, correspondiente al nombre legal completo usado obligatoriamente en contratos, nóminas y trámites del SEPE; así como el \textbf{CIF} (Código de Identificación Fiscal), necesario para la identificación ante la Agencia Tributaria.
 
+%6.2.1.2
 \subsubsection{Información de Domicilio}
-Se solicita el \textbf{Domicilio Social}, que establece la dirección legal de la sede para el envío de notificaciones. En vinculación a la dirección, se debe introducir el \textbf{ID del Municipio} (del domicilio social), que es clave para ciertos trámites y para la identificación geográfica requerida por el SEPE. Paralelamente, se debe facilitar el \textbf{ID del Municipio de cotización}, el cual puede ser distinto al domicilio social y es de uso estricto por parte de la Tesorería General de la Seguridad Social (TGSS) para los trámites específicos de afiliación.
+Se solicita el \textbf{Domicilio Social}, que establece la dirección legal de la sede para el envío de notificaciones. En vinculación a la dirección, se debe introducir el \textbf{ID del Municipio} (del domicilio social), que es clave para ciertos trámites y para la identificación geográfica requerida por el SEPE. Paralelamente, se debe facilitar el \textbf{ID del Municipio de cotización}, el cual puede ser distinto al domicilio social y es de uso estricto por parte de la Tesorería General de la Seguridad Social (TGSS) para los trámites específicos de afiliación, pero esta asignación se realiza de manera automática en el backend, vinculando el municipio de cotización al municipio del domicilio social a través de una tabla de correspondencia predefinida.
 
 \subsection{Parámetros de Cotización y Actividad (TGSS)}
 
@@ -53,7 +58,7 @@ El formulario documenta los \textbf{Conceptos salariales}. Esta sección define 
 Esta última categoría abarca los datos necesarios para formalizar la representación legal de la empresa, la automatización de la documentación interna y el estricto cumplimiento normativo.
 
 \subsubsection{Firma y Representación Legal}
-Para la rúbrica de contratos y comunicaciones, el sistema requiere el \textbf{NIF Firmante}, correspondiente a la persona legalmente autorizada para firmar los contratos. Este dato es un requisito ineludible para la correcta tramitación y resguardo de la comunicación del contrato al SEPE mediante el sistema Contrat@. A este identificador se le vincula el \textbf{Concepto Firmante}, que establece el cargo de dicho individuo (por ejemplo, "Apoderado" o "Gerente") para su figuración en el contrato. Adicionalmente, se solicita la \textbf{Firma Copia básica}, que guarda la ruta o referencia a la imagen de la firma del responsable. Este recurso se utilizará en caso de que la aplicación automatice la impresión o generación del contrato destinado a la Representación Legal de los Trabajadores (RLT).
+Para la rúbrica de contratos y comunicaciones, el sistema requiere el \textbf{NIF Firmante}, correspondiente a la persona legalmente autorizada para firmar los contratos. Este dato es un requisito ineludible para la correcta tramitación y resguardo de la comunicación del contrato al SEPE mediante el sistema Contrat@. A este identificador se le vincula el \textbf{Concepto Firmante}, que establece el cargo de dicho individuo (por ejemplo, ``Apoderado'' o ``Gerente'') para su figuración en el contrato. Adicionalmente, se solicita la \textbf{Firma Copia básica}, que guarda la ruta o referencia a la imagen de la firma del responsable. Este recurso se utilizará en caso de que la aplicación automatice la impresión o generación del contrato destinado a la Representación Legal de los Trabajadores (RLT).
 
 \subsubsection{Gestión Documental y Privacidad}
 Para agilizar el flujo de trabajo de la gestoría, se parametriza un \textbf{Formato Carta}, consistente en una plantilla predefinida que la plataforma usará de manera interna para generar notificaciones o documentación rápida. Del mismo modo, se establece una \textbf{Ruta archivo}, que define el directorio del sistema donde se alojarán los archivos maestros de la empresa (como los modelos de contrato base), asegurando así una gestión documental organizada y con plena trazabilidad. Finalmente, y para garantizar la adecuación a la normativa de privacidad, se debe introducir el \textbf{ID de clausula}. Este identificador relaciona a la empresa con sus cláusulas de Protección de Datos (RGPD) específicas, permitiendo que el formulario de alta incluya de forma automática los textos legales requeridos (según el art. 13 del RGPD) al incorporar a cualquier nuevo trabajador.

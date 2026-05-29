@@ -14,7 +14,7 @@ A continuación, se muestra una imagen de la pantalla de inicio de sesión de la
     \caption{Pantalla de inicio de sesión}
 \end{figure}
 
-La página está compuesta por un formulario sencillo. En este caso, no se hacen validaciones de formato en tiempo real porque dichas validaciones se harán a través del formulario de creación de usuarios.
+La página está compuesta por un formulario sencillo. Como bien se ha mencionado en el apartado 4.1, no se hacen validaciones de formato en tiempo real porque dichas validaciones se harán a través del formulario de creación de usuarios.
 \subsection{Opciones de Administrador}
 
 Los usuarios que cuenten con el rol de administrador dispondrán de capacidades de gestión de entidades y personal, teniendo acceso a las siguientes opciones:
@@ -24,7 +24,8 @@ Los usuarios que cuenten con el rol de administrador dispondrán de capacidades 
 \end{itemize}
 
 \subsection{Opciones de Supervisor}
-Los usuarios con el rol de supervisor tendrán acceso a las mismas opciones que los administradores, pero con una limitación importante: solo podrán dar de alta a nuevos usuarios de recursos humanos (RRHH) dentro de su ámbito de acceso autorizado. Es decir, un supervisor no podrá registrar a nuevos administradores ni modificar los permisos de acceso a empresas, pero sí podrá gestionar la creación de perfiles operativos de RRHH para facilitar la administración interna de la empresa o empresas a las que tiene acceso autorizado.
+
+Los usuarios con el rol de supervisor tendrán acceso a las mismas opciones que los administradores, pero con una limitación importante: solo podrán dar de alta a nuevos usuarios de recursos humanos (RRHH) dentro de su ámbito de acceso autorizado. Es decir, un supervisor no podrá registrar a nuevos administradores ni modificar los permisos de acceso a empresas, pero sí podrá gestionar la creación de perfiles operativos de RRHH para facilitar la administración interna de la empresa o empresas a las que tiene acceso autorizado. Este es el rol que tendrán dentro de la aplicación los gestores de las gestorías, ya que podrán gestionar a su vez a los usuarios de RRHH de sus clientes, pero no tendrán acceso a la gestión de empresas ni a la creación de administradores globales del sistema.
 
 Esta delegación de permisos permite una gestión más eficiente y segura del sistema, evitando que se otorguen privilegios excesivos a usuarios que no necesitan acceso completo a la plataforma.
 
@@ -37,7 +38,7 @@ Por otro lado, los usuarios de recursos humanos (RRHH) tendrán acceso a las ope
 
 \section{Gestión de Datos y Formulario Dual}
 
-Para dar de alta a un usuario (o empleado), el administrador debe rellenar un formulario específico. Este formulario va a tener una doble función arquitectónica, debido a que el servicio de Google Auth no permite añadir campos personalizados adicionales al perfil básico. Por un lado, se guardarán los datos de acceso en Google Auth, garantizando la encriptación de la contraseña; por otro lado, el resto de los campos operativos se guardarán dentro de la base de datos Firestore.
+Para dar de alta a un usuario (o empleado), el administrador debe rellenar un formulario específico. Este formulario va a tener una doble función arquitectónica, debido a que el servicio de Google Auth no permite añadir campos personalizados adicionales al perfil básico. Por un lado, se guardarán los datos de acceso en Google Auth (estos son el correo y el hash de la contraseña), garantizando la encriptación de la contraseña; por otro lado, el resto de los campos operativos se guardarán dentro de la base de datos Firestore bajo la colección \textit{users}.
 
 \subsection{Almacenamiento en Google Auth}
 
@@ -55,7 +56,7 @@ Además, dos contraseñas idénticas de diferentes usuarios no tendrán el mismo
 En su lugar, Google Auth devuelve un token de sesión cifrado y un identificador único (UID) que se utilizan para vincular el perfil de autenticación con el documento de permisos en Firestore, garantizando así una gestión segura y eficiente de los datos de acceso.
 Esto se usará para validar el acceso a la aplicación y para gestionar los permisos de cada usuario, asegurando que solo aquellos con las credenciales correctas puedan acceder a las funcionalidades correspondientes a su rol.
 
-A continuación, se muestran dos imágenes (una de Google Auth y otra de Firestore), una por encima de la otra, para ilustrar cómo se dividen los datos entre ambos servicios y cómo se complementan para ofrecer una solución de autenticación robusta y segura:
+A continuación, se muestran dos imágenes (una de Google Auth y otra de Firestore), una por encima de la otra, para ilustrar cómo se dividen los datos entre ambos servicios y cómo se complementan para ofrecer una solución de autenticación robusta y segura, omitiendo por motivos de seguridad algunos campos:
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{imagenes/05_GoogleAuth.png}
@@ -121,7 +122,7 @@ El flujo de asignación de empresas a los usuarios conlleva un protocolo estrict
 
 Este procedimiento debe realizarse obligatoriamente de esta manera para garantizar que no se viole el Reglamento General de Protección de Datos (RGPD). De no seguirse este control estricto, cualquier administrador podría dar acceso a un usuario a los datos confidenciales de otra compañía (como, por ejemplo, la empresa de la competencia). En pocas palabras, el dato ``Empresas autorizadas'' es un dato exclusivo de backend, protegido contra asignaciones automáticas no verificadas.
 
-Una vez que el superusuario ha asignado manualmente el acceso a las empresas correspondientes, se consideran dis escenarios posibles para los usuarios de RRHH, dependiendo de si tienen o no el campo `Is\_supervisor` con valor cierto o falso:
+Una vez que el superusuario ha asignado manualmente el acceso a las empresas correspondientes, se consideran dos escenarios posibles para los usuarios de RRHH, dependiendo de si tienen o no el campo `Is\_supervisor` con valor cierto o falso:
 \begin{itemize}
     \item \textbf{Is\_supervisor = true:} Si el usuario tiene el campo `Is\_supervisor` con valor cierto, tendrá privilegios para registrar a otros usuarios de RRHH dentro de su ámbito. Es decir, podrá dar de alta a nuevos usuarios de RRHH y asignarles el mismo acceso a empresas que él tiene autorizado, pero no podrá modificar los permisos de acceso a empresas ni asignar permisos de administrador.
     \item \textbf{Is\_supervisor = false:} Si el usuario no tiene el campo `Is\_supervisor` con valor cierto, entonces este usuario no tendrá privilegios para registrar a otros usuarios de RRHH dentro de su ámbito. Solo podrá acceder a las funcionalidades operativas de recursos humanos, como dar de alta a empleados dentro de las empresas a las que tiene acceso autorizado, pero no podrá gestionar ni asignar permisos a otros usuarios.
