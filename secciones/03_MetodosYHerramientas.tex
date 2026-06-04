@@ -9,6 +9,10 @@ Este capítulo está dedicado a describir de forma detallada la metodología de 
 
 Para la realización de este sistema se ha optado por un enfoque iterativo y un modelo de desarrollo ágil basado en la creación de prototipos funcionales (Prototipado). Este método permite disponer de vistas de interfaz navegables de forma temprana para validar los requisitos visuales antes de implementar la lógica de negocio subyacente. 
 
+La metodología AGILE es un marco de trabajo de ingeniería de software que promueve la planificación adaptativa, el desarrollo evolutivo y la mejora continua. Se basa en la entrega de valor de forma incremental y prioriza la respuesta rápida y flexible frente a los cambios imprevistos por encima de la rigidez de una planificación inicial cerrada. En el contexto de este proyecto, la filosofía ágil se ha utilizado para estructurar el trabajo en entregas funcionales a lo largo de las 14 semanas de planificación. En lugar de seguir un desarrollo lineal clásico o en cascada, se construyó de manera temprana el diseño visual en FlutterFlow para afianzar la experiencia de usuario con prototipos navegables, acoplando posteriormente y de forma progresiva la arquitectura NoSQL y la lógica en la nube mediante Firebase. 
+
+Esta gran capacidad de adaptación iterativa que ofrece AGILE resultó determinante para la consecución del proyecto; al descubrir en las fases de investigación que la Tesorería General de la Seguridad Social (TGSS) no ofrecía una API pública y directa para integrarse con su Sistema RED, el enfoque ágil permitió pivotar los objetivos rápidamente sin paralizar al resto de componentes. En consecuencia, el desarrollo de las integraciones se reorientó fluidamente hacia la creación de una Mock API simulada en el backend, manteniendo intacto el progreso paralelo de las tareas de frontend y del diseño de las bases de datos.
+
 El ciclo de desarrollo se ha dividido en fases incrementales: comenzó con la revisión y diseño de la interfaz de usuario (UX/UI) en plataformas \textit{Low-Code}, prosiguió con la implementación de funciones críticas y algoritmos de validación en el lado del cliente, se complementó con la configuración de la arquitectura de bases de datos NoSQL y funciones en la nube, y finalizó con la integración y pruebas del sistema simulado. Esta metodología ha permitido adaptar el sistema de manera flexible a los estrictos requerimientos de segregación de datos que impone el RGPD.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -47,6 +51,18 @@ Es una plataforma de desarrollo visual \textit{Low-Code} basada en el \textit{fr
 \subsubsection{Dart}
 Es un lenguaje de programación optimizado para el desarrollo de interfaces de usuario rápidas en múltiples plataformas, creado por Google y utilizado como motor detrás de Flutter. \textit{Se ha elegido porque es el lenguaje nativo requerido por FlutterFlow para programar la lógica de programación y estructuras de datos en el lado del cliente (como las estrictas validaciones algorítmicas del formato DNI/NIE y el control de rangos de fechas)}.
 
+
+\subsubsection{Material Design y Heurísticas de Nielsen}
+Material Design es un sistema de diseño de código abierto desarrollado por Google, orientado a guiar la creación de interfaces digitales consistentes, accesibles e intuitivas en múltiples plataformas. \textit{Se ha seleccionado e integrado este marco de diseño debido a que FlutterFlow implementa sus componentes nativos bajo esta especificación de forma predeterminada}. 
+
+La adopción de Material Design no responde únicamente a criterios estéticos, sino que ha servido como base estructural para garantizar el cumplimiento de las 10 Heurísticas de Usabilidad de Jakob Nielsen durante la fase de prototipado del sistema. Al utilizar este ecosistema, la interfaz hereda de forma intrínseca patrones que satisfacen principios críticos evaluados en la disciplina de Interacción Persona-Ordenador, tales como:
+\begin{itemize}
+    \item \textbf{Consistencia y estándares:} El uso de la paleta de componentes estandarizados de Material Design asegura que los elementos interactivos se comporten de manera predecible para el usuario a lo largo de toda la plataforma web y móvil.
+    \item \textbf{Prevención y recuperación de errores:} Los campos de formulario y los diálogos de alerta integrados en el sistema de diseño facilitan la implementación de restricciones visuales inmediatas y mensajes claros de diagnóstico ante fallos.
+    \item \textbf{Flexibilidad y eficiencia de uso:} La disposición adaptativa de los componentes permite optimizar los flujos operativos de las agencias de Recursos Humanos, agilizando las interacciones recurrentes y la visualización de los datos maestros de cotización.
+\end{itemize}
+De este modo, el sistema de diseño actúa como un marco preventivo que minimiza los problemas de usabilidad antes de someter el prototipo de alta fidelidad a las fases de inspección formal y evaluación por pautas de accesibilidad.
+
 \subsection{Herramientas de Desarrollo Backend e Infraestructura} \label{subsct:herramientas_backend}
 
 Para soportar la lógica de negocio segura, el almacenamiento y la arquitectura \textit{Multi-Tenant}, se ha empleado la suite de Google:
@@ -59,6 +75,7 @@ Es una base de datos NoSQL documental, flexible y escalable alojada en la nube, 
 
 \subsubsection{Firebase Authentication}
 Es el servicio de Firebase encargado de la identificación de usuarios y la gestión de contraseñas de forma segura. \textit{Se ha elegido porque provee una solución robusta y lista para usar que se integra de manera nativa con las reglas de seguridad de Firestore, permitiendo establecer controles de acceso granulares basados en roles (administrador, RRHH, supervisor) de manera eficiente}.
+
 
 \subsection{Herramientas de Apoyo y Control de Versiones} \label{subsct:herramientas_apoyo}
 

@@ -30,9 +30,10 @@
   style=numeric,
   sorting=none
 ]{biblatex}
-\bibliography{bibliography}
+\addbibresource{bibliography.bib}
 \usepackage{csquotes}
 % --- BIBLIOGRAPHY ---
+
 
 \usepackage{float}
 \usepackage{subfigure}
@@ -142,4 +143,13 @@
                                     backgroundcolor=\color{gray75},
                                     language=Python,
                                     numbers=left}
+                    \lstdefinestyle{Dart}{
+                                    basicstyle=\small\ttfamily,
+                                    frame=single,
+                                    backgroundcolor=\color{gray97}, % O usa gray75 si prefieres el fondo más oscuro de tu Python
+                                    language=Dart,
+                                    numbers=left,
+                                    numberstyle=\tiny\color{gray},
+                                    breaklines=true,
+                                    showstringspaces=false}
                                 \makeatother

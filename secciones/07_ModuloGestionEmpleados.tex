@@ -10,17 +10,15 @@ La funcionalidad troncal de este módulo es la creación de nuevos registros de 
 %7.1.1
 \subsection{Proceso de Registro y Permisos (revisar)}
 
-La capacidad para dar de alta a un nuevo empleado está restringida a los usuarios que dispongan de permisos de recursos humanos (“rrhh”).
-El flujo de trabajo en la interfaz está diseñado de forma secuencial: una vez que el usuario autorizado escoge
-una empresa en la plataforma mediante el menú de selección, aparecerá habilitado el botón de “dar de alta”, simbolizado en la esquina superior derecha con el icono de un ``+'' (más).
-Al pulsar este botón, el sistema abrirá una nueva pestaña o vista desplegando el formulario de empleados,
-donde se deberán introducir todos los datos requeridos del nuevo trabajador.
+Para poder crear un empleado, el usuario debe contar con permisos de ``rrhh'' (recursos humanos). Una vez que el usuario cuenta con este rol, está autorizado para acceder al registro de nuevos empleados a través de un formulario específico en el frontend. Este formulario recoge toda la información legal, de contacto, residencia y contractual del trabajador, que posteriormente se comunicará a la TGSS para formalizar el alta técnica.
+
+
 
 \begin{figure}[H]
     \centering % Sustituye la ruta por el nombre de tu archivo de imagen
-    \includegraphics[width=0.8\textwidth]{ruta_menu_seleccion_empleados.png}
-    \caption{Menú de selección de empleados.}
-    \label{fig:seleccion_empleados}
+    \includegraphics[width=0.8\textwidth]{imagenes/07_CrearEmpleado.png}
+    \caption{Formulario de Alta de Empleado}
+    \label{fig:crear_empleado}
 \end{figure}
 
 Tras completar el formulario y confirmar el registro, el sistema enviará al endpoint facilitado por la empresa la información del nuevo empleado, lo que a su vez desencadenará la comunicación automática con la TGSS para formalizar el alta técnica. Es importante destacar que el proceso de alta en la plataforma y el proceso de alta en la Seguridad Social son dos acciones distintas pero interconectadas, siendo esta última una consecuencia directa del registro en el sistema.
@@ -28,32 +26,16 @@ Tras completar el formulario y confirmar el registro, el sistema enviará al end
 %7.1.2
 \subsection{Edición de Datos y Trazabilidad}
 
-Además del registro inicial, la plataforma contempla la posibilidad de editar los datos de un empleado existente en caso de que sea necesario realizar correcciones, actualizar el domicilio o modificar las condiciones de su contrato. Por motivos estrictos de seguridad y control de la información, esta acción de edición está restringida de manera exclusiva a los usuarios que posean el rol de \textbf{supervisor} o \textbf{administrador}.
+Si se ha cometido un error en la introducción de datos o si es necesario actualizar la información de un empleado, el usuario con permisos de ``rrhh'' también tiene la capacidad de editar los registros existentes. La edición se realiza a través de una interfaz similar al formulario de alta, pero con los campos pre-cumplimentados con los datos actuales del empleado, lo que permite una actualización eficiente y sin errores.
 
-Tras esta edición de información, se envía al endpoint de la empresa la información actualizada del empleado, lo que a su vez puede desencadenar una nueva comunicación con la TGSS para reflejar los cambios en el sistema de la Seguridad Social, dependiendo de la naturaleza de las modificaciones realizadas (por ejemplo, cambio de domicilio, modificación de condiciones contractuales, etc.).
-
-Es importante destacar que cualquier modificación realizada sobre el perfil de un trabajador no sobrescribe la información sin dejar rastro. Todo cambio queda rigurosamente registrado en el historial del sistema para garantizar una trazabilidad absoluta ante posibles auditorías. No obstante, el funcionamiento técnico de este registro histórico y la colección donde se almacena es tema del siguiente módulo de esta memoria.
-
-\begin{figure}[H]
-    \centering % Sustituye la ruta por el nombre de tu archivo de imagen
-    \includegraphics[width=0.8\textwidth]{ruta_menu_edicion.png}
-    \caption{Menú de edición de datos de un empleado existente.}
-    \label{fig:edicion_empleado}
-\end{figure}
-
-Como podemos observar en la figura \ref{fig:edicion_empleado}, el sistema muestra un formulario pre-rellenado con los datos actuales del empleado. Esto se consigue al haber una búsqueda en la base de datos para encontrar los datos del empleado y plasmarlos en dicho formulario, permitiendo al usuario autorizado realizar las modificaciones necesarias. Al confirmar los cambios, se actualiza la información tanto en la plataforma como en la TGSS, asegurando que todos los registros estén sincronizados y reflejen la situación actual del trabajador.
+Al igual que en el capítulo anterior, el menú de edición de empleados difiere del de creación en que aparece un botón en la zona superior derecha para eliminar al empleado, y en que, en vez de aparecer en la parte inferior de la página el botón de ``Añadir usuario'', aparece un botón de ``Guardar cambios'' para confirmar la actualización de los datos.
+        
 
 %7.2
 \section{Datos del Formulario de Empleados}
+En esta sección, se va a explicar en detalle qué datos se recogen en el formulario. Aunque ya se ha hablado de ello en los apartados anteiores, las imágenes adjuntadas en dichos apartados no muestran al completo el formulario, por lo que se ha considerado necesario dedicar un apartado específico para detallar cada uno de los campos que se recogen en el mismo.
 
 Para formalizar el registro o la edición, el usuario debe rellenar un formulario que recoge toda la información legal, de contacto, residencia y contractual del empleado.
-
-\begin{figure}[H]
-    \centering % Sustituye la ruta por el nombre de tu archivo de imagen
-    \includegraphics[width=0.8\textwidth]{ruta_formulario_empleado.png}
-    \caption{Formulario de recogida de datos del empleado.}
-    \label{fig:formulario_empleado}
-\end{figure}
 
 Estos datos se estructuran lógicamente en los siguientes apartados:
 

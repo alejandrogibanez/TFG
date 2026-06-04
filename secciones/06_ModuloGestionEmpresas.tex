@@ -10,10 +10,27 @@ El sistema diferencia la interacción con las empresas clientes de acuerdo con e
 \subsection{Creación de Nueva Empresa}
 
 La capacidad de dar de alta a nuevas empresas está restringida exclusivamente a los usuarios con permisos de “admin” (administrador). Esta acción se materializa mediante la cumplimentación de un formulario detallado de empresa en el frontend. En dicho proceso, que corresponde a los requerimientos abordados en las primeras etapas del desarrollo, el administrador debe introducir de manera precisa toda la información legal, fiscal y de cotización necesaria para habilitar la operativa de la empresa dentro de la plataforma.
-%6.1.2
-\subsection{Gestión de Empresa (yo lo borraba)}
 
-La operativa continua sobre las entidades dadas de alta recae fundamentalmente en los usuarios con permisos de “rrhh” (recursos humanos). Al acceder al sistema, el usuario de recursos humanos debe escoger, a través de un panel de selección, la empresa específica sobre la que desea llevar a cabo sus gestiones (como dar de alta a nuevos empleados). Esta selección explícita es un paso obligatorio, con la única excepción de aquellos perfiles que hayan sido autorizados para acceder a una sola entidad, en cuyo caso el sistema obvia este paso y asigna automáticamente el entorno de trabajo correspondiente.
+A continuación, se adjunta una captura de pantalla del formulario de alta de empresa, que ilustra la interfaz y los campos requeridos para completar el proceso de registro:
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{imagenes/06_CrearEmpresa.png}
+    \caption{Formulario de Alta de Empresa}
+    \label{fig:formulario_empresa}
+\end{figure}
+
+%6.1.2
+\subsection{Edición y Gestión de Empresas Existentes}
+
+Además de la creación, los usuarios con permisos de “admin” también pueden acceder a la gestión de las empresas ya registradas. Esto incluye la capacidad de editar los datos maestros de la empresa, actualizar información relevante y gestionar aspectos relacionados con la operativa diaria. La edición se realiza a través de una interfaz similar al formulario de alta, pero con los campos pre-cumplimentados con los datos existentes, permitiendo así una actualización eficiente y sin errores.
+
+Adjuntamos a continuación una captura de pantalla de la interfaz de edición de empresa, que muestra cómo se presentan los datos para su modificación:
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{imagenes/06_EditarEmpresa.png}
+    \caption{Interfaz de Edición de Empresa}
+    \label{fig:editar_empresa}
+\end{figure}
 
 %6.2
 \section{Datos del Formulario de Empresa}

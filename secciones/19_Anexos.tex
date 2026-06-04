@@ -1,5 +1,541 @@
 \chapter{Anexo} \label{chp:anexo}
 
-<<Este capítulo (anexo) es opcional, y se escribirá de acuerdo con las indicaciones del Tutor.>>
+\section{Estructures de dades} \label{sct:estructuras_datos}
+
+\subsection{Lista de datos de una empresa corporativa}
+A continuación, se muestra una lista con todos los campos que se almacenan en el documento de cada organización o empresa cliente dentro de la base de datos Firestore, detallando el tipo de dato y su funcionalidad en el sistema:
+\begin{itemize}
+    \item \textbf{ID de la Empresa (String):} Clave única del documento que identifica a la entidad dentro del sistema, actuando como pilar fundamental para la segregación de datos en la arquitectura Multi-Tenant.
+    \item \textbf{Razón Social (String):} Nombre legal completo de la organización corporativa utilizado de forma obligatoria en la elaboración de contratos, nóminas y trámites oficiales con el SEPE.
+    \item \textbf{CIF (String):} Código de Identificación Fiscal de la entidad, estrictamente necesario para las comunicaciones, validaciones y trámites ante la Agencia Tributaria.
+    \item \textbf{Domicilio Social (String):} Dirección legal completa de la sede de la empresa empleada para la recepción de notificaciones formales.
+    \item \textbf{ID del Municipio (String):} Código identificador del municipio del domicilio social, utilizado para la ubicación geográfica requerida en los trámites con el SEPE.
+    \item \textbf{ID del Municipio de cotización (String):} Identificador geográfico de uso exclusivo por parte de la Tesorería General de la Seguridad Social (TGSS) para gestiones de afiliación; su asignación se realiza de forma automática en el backend mediante vinculación relacional con el domicilio social.
+    \item \textbf{Régimen (String):} Régimen de la Seguridad Social aplicable a la actividad laboral de la empresa (establecido como el Régimen General para la mayoría de las organizaciones).
+    \item \textbf{CCC (String):} Código de Cuenta de Cotización. Clave alfanumérica única ante la Seguridad Social que asocia el centro de trabajo y la mutua, constituyendo la llave indispensable para procesar cualquier alta técnica.
+    \item \textbf{Código de actividad económica o CNAE (String):} Código numérico oficial de clasificación de la actividad comercial de la empresa exigido obligatoriamente en el registro.
+    \item \textbf{Actividad económica (String):} Descripción literal y detallada de la labor comercial de la entidad basada directamente en la clasificación del CNAE.
+    \item \textbf{Clave percepto (String):} Identificador tributario empleado por la Agencia Tributaria para clasificar la naturaleza de los ingresos o pagos y proceder al cálculo de retenciones.
+    \item \textbf{Administración de Hacienda (String):} Identificación de la delegación de Hacienda a la cual se encuentra adscrita la sede fiscal para la correcta canalización documental.
+    \item \textbf{Código Idioma MEC (String):} Variable de control para regular normativamente el idioma empleado en las comunicaciones con el Ministerio de Empleo y Seguridad Social.
+    \item \textbf{Código convenio (String):} Código unívoco del convenio colectivo que aplica a la organización, imprescindible para la clasificación del personal ante la TGSS.
+    \item \textbf{Convenio colectivo (String):} Denominación oficial y textual del convenio regulador, cuya presencia es de obligado cumplimiento en la confección física o digital del contrato.
+    \item \textbf{Conceptos salariales (Map / Estructural):} Estructura de datos que delimita los componentes base de las nóminas (sueldo base, complementos y pagas extraordinarias), sirviendo como punto de partida para interactuar con futuros módulos de nóminas.
+    \item \textbf{NIF Firmante (String):} Documento de identidad de la persona con poderes legales o autorizada para rubricar los contratos de trabajo y tramitar las comunicaciones del sistema Contrat@ del SEPE.
+    \item \textbf{Concepto Firmante (String):} Cargo o condición representativa del firmante autorizado (por ejemplo, ``Apoderado'' o ``Gerente'') para su inclusión formal en el contrato.
+    \item \textbf{Firma Copia básica (String):} Ruta de almacenamiento o referencia a la imagen digitalizada de la rúbrica del responsable, empleada en procesos automáticos de generación de contratos para la Representación Legal de los Trabajadores (RLT).
+    \item \textbf{Formato Carta (String):} Plantilla predefinida parametrizada en la plataforma para agilizar el flujo interno de la gestoría en la emisión de notificaciones rápidas.
+    \item \textbf{Ruta archivo (String):} Directorio del sistema configurado para el alojamiento estructurado y trazable de los archivos maestros de la empresa, como los modelos de contrato.
+    \item \textbf{ID de clausula (String):} Identificador que vincula el documento de la empresa con sus cláusulas de Protección de Datos específicas, garantizando que el formulario de alta incluya los textos obligatorios del art. 13 del RGPD.
+\end{itemize}
+
+\newpage
+
+\subsection{Lista de datos de un empleado}
+A continuación, se detalla la estructura completa de los campos recopilados en el formulario de alta y edición de trabajadores, los cuales se almacenan en la colección de empleados vinculada de forma unívoca a la empresa correspondiente:
+\begin{itemize}
+    \item \textbf{Tipo de Documento (String):} Selección oficial del documento identificativo aportado por el trabajador (DNI, NIE o Pasaporte).
+    \item \textbf{DNI/NIE (String):} Clave principal de identificación fiscal y laboral del empleado; su formato queda condicionado por el tipo de documento seleccionado.
+    \item \textbf{NAF (String):} Número de Afiliación a la Seguridad Social. Identificador único e ineludible del trabajador ante la TGSS, obligatorio para tramitar y validar la afiliación.
+    \item \textbf{Nombre (String):} Nombre de pila del trabajador para su identificación formal in contracts, comunicaciones y nóminas.
+    \item \textbf{Apellido1 (String):} Primer apellido del empleado para el registro legal formal.
+    \item \textbf{Apellido2 (String):} Segundo apellido del empleado para completar la filiación reglamentaria.
+    \item \textbf{Sexo (String):} Género del trabajador, requerido para la cumplimentación del Modelo 145 del IRPF y fines estadísticos de la Seguridad Social.
+    \item \textbf{Fecha de nacimiento (Timestamp):} Fecha de nacimiento del empleado, dato estrictamente obligatorio para validar su identidad y mayoría de edad laboral ante la TGSS.
+    \item \textbf{ID País (String):} Código identificador del país de nacionalidad, clave para discernir administrativamente entre personal comunitario y extracomunitario.
+    \item \textbf{Teléfono (String):} Número telefónico de contacto directo. No es obligatorio para el alta técnica en el Estado, pero se guarda en backend para optimizar la comunicación interna de la plataforma.
+    \item \textbf{Tipo de vía pública (String):} Sigla normalizada de la vía (CL para calle, AV para avenida, etc.) exigida para el formato del domicilio oficial por la AEAT y la TGSS.
+    \item \textbf{Vía pública (String):} Nombre textual de la calle, avenida o plaza que conforma la residencia fiscal del trabajador.
+    \item \textbf{Número (String/Integer):} Número físico del inmueble del domicilio del trabajador.
+    \item \textbf{Piso (String):} Planta o piso específico de la vivienda del empleado.
+    \item \textbf{Puerta (String):} Puerta o letra identificativa del domicilio del empleado.
+    \item \textbf{ID municipio (String):} Código identificador oficial del municipio de residencia, obligatorio para los envíos documentales hacia Hacienda y el SEPE.
+    \item \textbf{ID de la Empresa / CCC (String):} Código de cuenta de cotización de la entidad contratante que vincula estructuralmente al empleado con su organización en Firestore.
+    \item \textbf{Fecha de alta (Timestamp):} Fecha exacta del inicio de los efectos de la relación laboral que se transmite a la TGSS; debe estar en un rango de entre el día actual y un máximo de 60 días posteriores.
+    \item \textbf{ID del nivel de estudios (String):} Código del nivel máximo de estudios completados por el trabajador, solicitado de forma obligatoria por el SEPE en el sistema Contrat@.
+    \item \textbf{ID del convenio (String):} Identificador del convenio colectivo aplicable que asocia los baremos salariales mínimos permitidos al puesto.
+    \item \textbf{IBAN (String):} Código Internacional de Cuenta Bancaria para la posterior transferencia de haberes; este dato operacional sensible es custodiado bajo estrictos mecanismos de cifrado.
+    \item \textbf{Número de Tarjeta de Conductor (String):} Código identificador de la tarjeta de tacógrafo, requerido de forma exclusiva para el cumplimiento normativo en el sector del transporte.
+    \item \textbf{Situación (String) [Constante]:} Variable interna fijada por defecto en ``01'' (Alta en el Régimen General) para la estructuración automática del fichero oficial TA.2/S.
+    \item \textbf{Tipo de contrato (String) [Constante]:} Código numérico oficial (v.g., 100 para indefinido, 420 para temporal) que categoriza el tipo de contrato e influye en las bonificaciones o recargos de la TGSS.
+    \item \textbf{Subtipo de contrato (String) [Constante]:} Código de desglose que detalla la modalidada específica contractual para el SEPE.
+    \item \textbf{Colectivo del trabajador (String) [Constante]:} Código interno utilizado para reflejar colectivos singulares (v.g., personas con discapacidad) necesarios para la aplicación de reducciones de cuotas.
+    \item \textbf{Porcentaje de jornada (Number) [Constante]:} Coeficiente de parcialidad de la prestación laboral (100 para jornada completa, 50 para media jornada) que incide directamente en las bases de cotización.
+    \item \textbf{Horario (String) [Constante]:} Descripción textual de la distribución del tiempo de trabajo, obligatoria según el registro normativo de jornada.
+    \item \textbf{Importe bruto (Number) [Constante]:} Retribución económica bruta asignada al empleado, que sirve como base aritmética para la simulación de nóminas y bases de cotización.
+    \item \textbf{Tipo de importe (String) [Constante]:} Indicador de la periodicidad de la cuantía salarial introducida (anual, mensual o por horas).
+    \item \textbf{Fecha de fin de contrato (Timestamp) [Constante]:} Fecha de término de la relación laboral en contratos de naturaleza temporal, obligatoria para el SEPE.
+    \item \textbf{Motivo de la temporalidad (String) [Constante]:} Causa legal justificativa de la duración determinada del contrato según las exigencias del RD-ley 32/2021.
+    \item \textbf{Periodo de prueba (String) [Constante]:} Duración pactada por contrato del periodo de prueba al inicio de la actividad laboral.
+    \item \textbf{Antigüedad (Timestamp) [Constante]:} Fecha de control interno de antigüedad del empleado, reservada para la futura automatización de trienios y pluses salariales.
+\end{itemize}
+
+\subsection{Lista de datos de un convenio}
+A continuación, se muestra una lista con todos los campos que se almacenan en el documento de cada convenio dentro de la base de datos Firestore, incluyendo el tipo de dato y su función dentro del sistema de gestión de contratación y relaciones laborales:
+\begin{itemize}
+    \item \textbf{Actividad\_Economica (String):} Descripción textual de la actividad comercial principal regulada por el convenio (por ejemplo, ``TRANSPORTE MERCANCIAS POR CARR'').
+    \item \textbf{CNO (String):} Código de la Clasificación Nacional de Ocupaciones que identifica la categoría estadística oficial del puesto.
+    \item \textbf{Categoria (String):} Identificador abreviado de la categoría profesional del trabajador dentro de la estructura organizativa (por ejemplo, ``COND.MEC'').
+    \item \textbf{Cobro (String):} Especifica la periodicidad del pago o devengo salarial establecido para el puesto (por ejemplo, ``Mensual'').
+    \item \textbf{Codigo\_Actividad\_Economica (String):} Código numérico que clasifica el sector de actividad económica del convenio.
+    \item \textbf{Codigo\_OcupacionSS (String):} Clave oficial de ocupación exigida por la Seguridad Social para el cálculo de los tipos de cotización por Accidentes de Trabajo y Enfermedades Profesionales (AT y EP).
+    \item \textbf{Convenio\_Colectivo (String):} Código unívoco oficial de registro del convenio colectivo ante el Ministerio de Trabajo.
+    \item \textbf{Convenio\_Navision (String):} Identificador o código de correspondencia interna utilizado para la integración y sincronización de datos con el software ERP Navision.
+    \item \textbf{Convenio\_Puesto (String):} Código compuesto estructural que vincula el código del convenio con la categoría profesional específica para su gestión en el sistema.
+    \item \textbf{Denominacion\_Completa (String):} Nombre legal completo y descriptivo del convenio colectivo regulador, incluyendo su ámbito geográfico o provincial.
+    \item \textbf{Empresa (String):} Nombre o razón social de la empresa asociada a la aplicación de este documento normativo.
+    \item \textbf{Grupo\_Cotizacion (String):} Código de dos dígitos que determina el grupo de cotización de la Seguridad Social asignado al puesto (por ejemplo, ``08''), clave para fijar las bases mínimas y máximas.
+    \item \textbf{IdConvenio (Int64):} Identificador numérico único de control interno del documento de convenio dentro del sistema.
+    \item \textbf{IdEmpresa (Int64):} Identificador numérico que vincula relacionalmente este convenio con el documento único de la empresa correspondiente.
+    \item \textbf{Nombre\_Provincia (String):} Denominación textual de la provincia a la que se circunscribe el ámbito de aplicación del convenio colectivo.
+    \item \textbf{Original (String):} Listado o registro de texto de las entidades y empresas firmantes u originarias ligadas inicialmente a este marco normativo.
+    \item \textbf{Provincia (String):} Código de dos dígitos asignado formalmente por el Instituto Nacional de Estadística (INE) a la provincia reguladora (por ejemplo, ``30'' para Murcia).
+    \item \textbf{Puesto\_Trabajo (String):} Denominación formal del puesto laboral que desempeña el operario dentro de la organización (por ejemplo, ``CONDUCTOR'').
+    \item \textbf{Regimen (String):} Código numérico de cuatro dígitos oficial correspondiente al régimen de la Seguridad Social aplicable para la cotización.
+    \item \textbf{Regimen\_Navision (String):} Nombre descriptivo del régimen de cotización procesado de forma interna por el software de gestión Navision (por ejemplo, ``GENERAL'').
+    \item \textbf{Trabajador\_TMS (String):} Identificador o etiqueta del perfil profesional utilizado para la interconexión con el Sistema de Gestión de Transportes (TMS).
+\end{itemize}
+
+\subsection{Lista de datos de un municipio}
+A continuación, se muestra una lista con todos los campos que se almacenan en el documento de cada municipio dentro de la base de datos Firestore, detallando el tipo de dato y su función para la validación geográfica y tramitación de altas en el sistema:
+\begin{itemize}
+    \item \textbf{codigo\_postal (String):} El código postal de cinco dígitos que identifica la zona de reparto e influye en la clasificación censal del centro de trabajo o del domicilio del empleado.
+    \item \textbf{municipio\_id (String):} Identificador numérico o alfanumérico único oficial asignado al municipio, utilizado como clave de correspondencia obligatoria en las comunicaciones enviadas hacia Hacienda, el SEPE y la Seguridad Social.
+    \item \textbf{nombre\_municipio (String):} Denominación textual completa y literal del municipio (por ejemplo, ``Ponteareas''), empleada para proporcionar una verificación visual inmediata en la interfaz y mitigar la introducción errónea de datos críticos.
+\end{itemize}
 
 
+\subsection{Lista de datos de un nivel de estudios}
+A continuación, se muestra una lista con todos los campos que se almacenan en el documento de cada nivel de estudios dentro de la base de datos Firestore, detallando el tipo de dato y su finalidad para la correcta codificación académica y contractual exigida por el SEPE:
+\begin{itemize}
+    \item \textbf{Codigo (String):} Código numérico de dos dígitos oficial que identifica el nivel educativo alcanzado por el trabajador, indispensable para la cumplimentación de contratos en el sistema Contrat@.
+    \item \textbf{Titulo (String):} Descripción literal completa y reglamentaria de la titulación o la formación correspondiente al código (por ejemplo, ``Enseñanzas de grado medio de formación profesional específica, artes plásticas y diseño y deportivas'').
+\end{itemize}
+
+
+
+
+
+
+
+\section{Funciones de Dart utilizadas en el desarrollo}
+
+\subsection{Funciones de validación de campos}
+\subsubsection{Validación de DNI/NIE}
+\begin{lstlisting}[language=Python, caption=Función de validación de DNI/NIE]
+bool validarDniNie(
+  String documento,
+  String tipoDocumento,
+) 
+{
+const String tablaLetras = 'TRWAGMYFPDXBNJZSQVHLCKE';
+final String docUpper = documento.toUpperCase();
+
+
+if (docUpper.length != 9) {
+return false; 
+}
+
+
+
+final RegExp dniNieRegex =
+    RegExp(r'^(?:[0-9]{8}|[XYZ][0-9]{7})[TRWAGMYFPDXBNJZSQVHLCKE]\$');
+
+if (!dniNieRegex.hasMatch(docUpper)) {
+    return false;
+}
+
+
+final String letraDocumento = docUpper[8];
+String parteNumericaStr = docUpper.substring(0, 8);
+
+String primeraLetra = parteNumericaStr[0];
+
+if (primeraLetra == 'X' || primeraLetra == 'Y' || primeraLetra == 'Z') {
+    String digitoReemplazo;
+    switch (primeraLetra) {
+        case 'X':
+            digitoReemplazo = '0';
+        break;
+        case 'Y':
+            digitoReemplazo = '1';
+        break;
+        case 'Z':
+            digitoReemplazo = '2';
+        break;
+        default:
+            return false;
+    }
+    parteNumericaStr = digitoReemplazo + parteNumericaStr.substring(1);
+}
+final int parteNumerica = int.tryParse(parteNumericaStr) ?? 0;
+final int resto = parteNumerica % 23;
+final String letraCalculada = tablaLetras[resto];
+return letraCalculada == letraDocumento;
+}
+\end{lstlisting}
+
+\subsubsection{Limitación de la edad a un mínimo de 16 años}
+\begin{lstlisting}[language=Python, caption=]
+DateTime getTopBornTime() {
+  /// MODIFY CODE ONLY BELOW THIS LINE
+
+  const int edadMinima = 16;
+
+
+  final hoy = DateTime.now();
+
+  final fechaCorte = DateTime(
+    hoy.year - edadMinima,
+    hoy.month,
+    hoy.day
+    );
+
+  return fechaCorte;
+}
+\end{lstlisting}
+
+
+
+
+\subsubsection{Limitación de la fecha de alta a un máximo de 60 días posteriores a la fecha actual}
+
+\begin{lstlisting}[language=Python, caption=Función para obtener el máximo día de alta]
+DateTime obtenerMaximoDiaAlta() {
+  /// MODIFY CODE ONLY BELOW THIS LINE
+  int diasASumar = 60;
+  final hoy = DateTime.now();
+  final duracion = Duration(days: diasASumar);
+  final fechaCorte = hoy.add(duracion);
+  return fechaCorte;
+}
+\end{lstlisting}
+
+
+\subsubsection{Validar NASS}
+\begin{lstlisting}[language=Python, caption=Función de validación de NAF]
+bool validarNASS(String nass) {
+  /// MODIFY CODE ONLY BELOW THIS LINE
+
+
+  final RegExp nassRegExp = RegExp(r'^[0-9]{12}\$');
+  if (!nassRegExp.hasMatch(nass)) {
+    return false;
+  }
+
+  
+  final int codProv = int.parse(nass.substring(0, 2));
+  final int numAfiliado = int.parse(nass.substring(2, 10));
+  final int control = int.parse(nass.substring(10, 12));
+  final int numGrande = int.parse(nass.substring(0, 10));
+
+
+  int comprobacion = (numAfiliado < 10000000)
+      ? (numAfiliado + codProv * 10000000) % 97
+      : numGrande % 97;
+
+  return comprobacion == control;
+}
+\end{lstlisting}
+
+\subsubsection{Enviar alta}
+\begin{lstlisting}[language=Python, caption=Función de envío de alta a la TGSS]
+    Future<String> submitAlta(
+  String tipoDocumento,
+  String dniNie,
+  String nass,
+  String prefijoTlf,
+  String numTlf,
+  DateTime fechaAlta,
+  DateTime? fechaBaja,
+) async {
+
+  if (!validarDniNie(dniNie, tipoDocumento)) {
+    return "ERROR: el \$tipoDocumento no es valido";
+  }
+
+  else if (!validarNASS(nass)) {
+    return "ERROR: el NASS no es valido";
+  }
+
+  else if (!isFechaBajaCorrect(fechaAlta, fechaBaja)) {
+    return "ERROR: la fecha de baja no puede ser anterior a la fecha de alta";
+  }
+
+
+  return "OK";
+}
+\end{lstlisting}
+
+
+
+
+
+\subsubsection{Obtener referencias de documentos a partir de sus IDs}
+\begin{lstlisting}[language=Python, caption=Función para obtener referencias de documentos a partir de sus IDs]
+import 'package:cloud_firestore/cloud_firestore.dart';
+
+Future<List<DocumentReference>?> getDocRefFromID(
+    List<String>? docIDs, String collection) async {
+  // Add your function code here!
+  final FirebaseFirestore firestore = FirebaseFirestore.instance;
+  final List<DocumentReference> documentReferences = [];
+
+  // Iterar sobre la lista de IDs de documentos
+  for (String docID in docIDs!) {
+    // 1. Construir la ruta del documento
+    String documentPath = "/$collection/$docID";
+
+    // 2. Crear la referencia al documento (operacion local)
+    DocumentReference documentReference = firestore.doc(documentPath);
+
+    // 3. Poner la referencia en la lista de resultados
+    documentReferences.add(documentReference);
+  }
+
+  // 4. Devolver la lista de referencias
+  return documentReferences;
+}
+\end{lstlisting}
+
+
+\subsubsection{Obtener referencia de un usuario}
+\begin{lstlisting}[language=Python, caption=Función para obtener la referencia de un usuario a partir de su ID]
+    import 'package:cloud_firestore/cloud_firestore.dart';
+
+Future<DocumentReference> getSingleUserRefFromID(String docID) async {
+  final FirebaseFirestore firestore = FirebaseFirestore.instance;
+
+  String documentPath = "/users/" + "\$docID"; //collection you want to query
+  DocumentReference documentReference = firestore.doc(documentPath);
+  return documentReference;
+}
+\end{lstlisting}
+
+\subsubsection{Crear un nuevo usuario en la colección de usuarios}
+\begin{lstlisting}[language=Python, caption=Función para crear un nuevo usuario]
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
+
+Future<String> manageUser(
+    // Parameters
+    String emailAddress, //Email from Widget State
+    String password, //Password from Widget State
+    String randomDocGen, //Random String (length: 28 - upper/lowe/digits)
+    bool isAdmin,
+    bool isSupervisor,
+    bool isRrhh,
+    String displayName,
+    String phoneNumber,
+    List<String> empresasRef,
+    String rol,
+    String departamento) async
+{
+  String returnmsg = 'Success';
+  DateTime createdTime = DateTime.now();
+  List<DocumentReference>? referencias = await getCompaniesRefID(empresasRef);
+  // Create a secondary Firebase app to isolate the user creation process
+  FirebaseApp app = await Firebase.initializeApp(
+    name: randomDocGen,
+    options: Firebase.app().options,
+  );
+
+  try {
+    // Create the user with the provided email and password
+    UserCredential userCredential =
+        await FirebaseAuth.instanceFor(app: app).createUserWithEmailAndPassword(
+      email: emailAddress,
+      password: password,
+    );
+
+    // Retrieve the UID of the newly created user
+    String? uid = userCredential.user?.uid;
+
+    if (uid != null) {
+      // Reference to the Firestore users collection
+
+      final CollectionReference usersRef =
+          FirebaseFirestore.instance.collection('users');
+
+      // Create a new user document with the provided data
+      // 'empresas_autorizadas_ref': getCompaniesRefID(empresasRef),
+      await usersRef.doc(uid).set({
+        'uid': uid,
+        'email': emailAddress,
+        'created_time': createdTime,
+        'is_admin': isAdmin,
+        'is_supervisor': isSupervisor,
+        'is_rrhh': isRrhh,
+        'display_name': displayName,
+        'phone_number': phoneNumber,
+        'empresas_autorizadas_ref': referencias,
+        'visibility': true,
+        'rol': rol,
+        'departamento': departamento,
+      });
+    } else {
+      return "Error while creating the UID";
+    }
+  } on FirebaseAuthException catch (e) {
+    return e.code;
+  } finally {
+    // Delete the secondary app to clean up resources
+
+    await app.delete();
+  }
+
+  return returnmsg;
+}
+\end{lstlisting}
+
+\subsection{Devolver una referencia de usuario concreta}
+\begin{lstlisting}[language=Python, caption=Función para obtener la referencia de un usuario a partir de su ID]
+import 'package:cloud_firestore/cloud_firestore.dart';
+
+Future<DocumentReference> getSingleCompanyRefFromID(String docID) async {
+  final FirebaseFirestore firestore = FirebaseFirestore.instance;
+
+  String documentPath = "/companies/" + "\$docID"; //collection you want to query
+  DocumentReference documentReference = firestore.doc(documentPath);
+  return documentReference;
+}
+// Set your action name, define your arguments and return parameter,
+// and then add the boilerplate code using the green button on the right!
+\end{lstlisting}
+
+\subsubsection{Obtener múltiples referencias de empresas}
+\begin{lstlisting}[language=Python, caption=Función para obtener referencias de empresas a partir de sus IDs]
+import 'package:cloud_firestore/cloud_firestore.dart';
+
+Future<List<DocumentReference>?> getCompaniesRefID(List<String>? docIDs) async {
+  // Add your function code here!
+  final FirebaseFirestore firestore = FirebaseFirestore.instance;
+  final List<DocumentReference> documentReferences = [];
+
+  // Iterar sobre la lista de IDs de documentos
+  for (String docID in docIDs!) {
+    // 1. Construir la ruta del documento
+    String documentPath = "/companies/\$docID";
+
+    // 2. Crear la referencia al documento (operacion local)
+    DocumentReference documentReference = firestore.doc(documentPath);
+
+    // 3. Poner la referencia en la lista de resultados
+    documentReferences.add(documentReference);
+  }
+
+  // 4. Devolver la lista de referencias
+  return documentReferences;
+}
+
+// Set your action name, define your arguments and return parameter,
+// and then add the boilerplate code using the green button on the right!
+\end{lstlisting}
+
+\subsubsection{Enviar los datos de empleados a los endpoints de la empresa}
+\begin{lstlisting}[language=Python, caption=Función para enviar los datos de empleados a los endpoints de la empresa]
+import 'dart:convert';
+import 'package:http/http.dart' as http;
+
+/// Envia los datos completos de un trabajador a una API REST en formato JSON.
+///
+/// Retorna true si la solicitud fue exitosa (codigo 200 o 201), false en caso contrario.
+Future<bool> sendWorkerData(
+  String apiUrl,
+  // Datos de Contacto
+  String tipoDocumento,
+  String dniNie,
+  String naf,
+  String nombre,
+  String primerApellido,
+  String segundoApellido,
+  String email,
+  String sexo,
+  String telefono,
+  String fechaNacimiento,
+  String siglasPaisNacimiento,
+  // Datos de Domicilio
+  String numero,
+  String piso,
+  String puerta,
+  String codigoPostal,
+  String nombreMunicipio,
+  String identificadorMunicipio,
+  // Datos de Contrato y Formacion
+  String fechaAlta,
+  String? fechaBaja, // Opcional, por defecto String vacio
+  String iban,
+  String? numeroTarjetaConductor, // Opcional, por defecto String vacio
+  String codigoDelConvenio,
+) async {
+  // 1. Construir la estructura de datos anidada (Mapa de Dart)
+  final Map<String, dynamic> dataToSend = {
+    "datos_contacto": {
+      "tipo_documento": tipoDocumento,
+      "dni_nie": dniNie,
+      "naf": naf,
+      "nombre": nombre,
+      "primer_apellido": primerApellido,
+      "segundo_apellido": segundoApellido,
+      "email": email,
+      "sexo": sexo,
+      "telefono": telefono,
+      "fecha_nacimiento": fechaNacimiento,
+      "siglas_pais_nacimiento": siglasPaisNacimiento,
+    },
+    "datos_domicilio": {
+      "numero": numero,
+      "piso": piso,
+      "puerta": puerta,
+      "codigo_postal": codigoPostal,
+      "nombre_municipio": nombreMunicipio,
+      "identificador_municipio": identificadorMunicipio,
+    },
+    "datos_contrato_y_formacion": {
+      "fecha_alta": fechaAlta,
+      // Logica para enviar null si la fecha de baja esta vacia
+      "fecha_baja": fechaBaja!.isEmpty ? null : fechaBaja,
+      "iban": iban,
+      // Logica para enviar null si el numero de tarjeta esta vacio
+      "numero_tarjeta_conductor":
+          numeroTarjetaConductor!.isEmpty ? null : numeroTarjetaConductor,
+      "codigo_del_convenio": codigoDelConvenio,
+    }
+  };
+
+  // 2. Codificacion JSON (Serializacion)
+  final String jsonBody = jsonEncode(dataToSend);
+
+  try {
+    // 3. Realizacion de la Solicitud HTTP (POST)
+    final response = await http.post(
+      Uri.parse(apiUrl),
+      // CRUCIAL: Indicamos a la API que el cuerpo es JSON
+      headers: <String, String>{
+        'Content-Type': 'application/json; charset=UTF-8',
+      },
+      // El cuerpo debe ser la cadena JSON codificada
+      body: jsonBody,
+    );
+
+    // 4. Manejo de la Respuesta
+    if (response.statusCode == 200 || response.statusCode == 201) {
+      print(
+          "Trabajador registrado exitosamente. Status: \${response.statusCode}");
+      // Opcional: Procesar la respuesta de la API si devuelve datos
+      // print("Respuesta de la API: \${response.body}");
+      return true;
+    } else {
+      print("Error al registrar trabajador. Codigo: \${response.statusCode}");
+      print("Cuerpo de error: \${response.body}");
+      return false;
+    }
+  } catch (e) {
+    print("Excepcion al enviar datos: \${e}");
+    return false;
+  }
+}
+
+// Set your action name, define your arguments and return parameter,
+// and then add the boilerplate code using the green button on the right!
+\end{lstlisting}
