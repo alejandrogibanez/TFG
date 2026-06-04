@@ -112,7 +112,12 @@ A continuación, se muestra una lista con todos los campos que se almacenan en e
     \item \textbf{Titulo (String):} Descripción literal completa y reglamentaria de la titulación o la formación correspondiente al código (por ejemplo, ``Enseñanzas de grado medio de formación profesional específica, artes plásticas y diseño y deportivas'').
 \end{itemize}
 
-
+\subsection{Lista de datos de un tipo de vía}
+A continuación, se muestra una lista con todos los campos que se almacenan en el documento de cada tipo de vía dentro de la base de datos Firestore, detallando el tipo de dato y su función para la normalización del domicilio fiscal del empleado:
+\begin{itemize}
+    \item \textbf{ID (String):} Sigla normalizada o abreviatura de la vía pública (por ejemplo, ``CL''), exigida rigurosamente por la Agencia Tributaria y la Seguridad Social para estructurar la dirección del trabajador.
+    \item \textbf{NOMBRE (String):} Denominación textual completa del tipo de vía correspondiente al identificador (por ejemplo, ``CALLE''), utilizada para la correcta interpretación de la información residencial dentro de la plataforma.
+\end{itemize}
 
 
 
